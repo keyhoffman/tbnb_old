@@ -22,15 +22,27 @@
 		034A3CC51D299ED1002BDA08 /* MealsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034A3CC41D299ED1002BDA08 /* MealsCoordinator.swift */; };
 		034A3CC61D299ED1002BDA08 /* MealsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034A3CC41D299ED1002BDA08 /* MealsCoordinator.swift */; };
 		034A3CC71D299ED1002BDA08 /* MealsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034A3CC41D299ED1002BDA08 /* MealsCoordinator.swift */; };
-		034A3CCA1D2AF76C002BDA08 /* MyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034A3CC91D2AF76C002BDA08 /* MyViewController.swift */; };
-		034A3CCB1D2AF76C002BDA08 /* MyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034A3CC91D2AF76C002BDA08 /* MyViewController.swift */; };
-		034A3CCC1D2AF76C002BDA08 /* MyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034A3CC91D2AF76C002BDA08 /* MyViewController.swift */; };
 		034A3CD01D2C981E002BDA08 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034A3CCF1D2C981E002BDA08 /* TabBarCoordinator.swift */; };
 		034A3CD11D2C981E002BDA08 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034A3CCF1D2C981E002BDA08 /* TabBarCoordinator.swift */; };
 		034A3CD21D2C981E002BDA08 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034A3CCF1D2C981E002BDA08 /* TabBarCoordinator.swift */; };
 		034A3CD41D2C985D002BDA08 /* AuthenticationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034A3CD31D2C985D002BDA08 /* AuthenticationCoordinator.swift */; };
 		034A3CD51D2C985D002BDA08 /* AuthenticationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034A3CD31D2C985D002BDA08 /* AuthenticationCoordinator.swift */; };
 		034A3CD61D2C985D002BDA08 /* AuthenticationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034A3CD31D2C985D002BDA08 /* AuthenticationCoordinator.swift */; };
+		034A3CDA1D2DDC55002BDA08 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034A3CD91D2DDC55002BDA08 /* Result.swift */; };
+		034A3CDB1D2DDC55002BDA08 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034A3CD91D2DDC55002BDA08 /* Result.swift */; };
+		034A3CDC1D2DDC55002BDA08 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034A3CD91D2DDC55002BDA08 /* Result.swift */; };
+		034A3CDF1D2DDD1C002BDA08 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034A3CDE1D2DDD1C002BDA08 /* Meal.swift */; };
+		034A3CE01D2DDD1C002BDA08 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034A3CDE1D2DDD1C002BDA08 /* Meal.swift */; };
+		034A3CE11D2DDD1C002BDA08 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034A3CDE1D2DDD1C002BDA08 /* Meal.swift */; };
+		034A3CE31D2DDD2A002BDA08 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034A3CE21D2DDD2A002BDA08 /* User.swift */; };
+		034A3CE41D2DDD2A002BDA08 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034A3CE21D2DDD2A002BDA08 /* User.swift */; };
+		034A3CE51D2DDD2A002BDA08 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034A3CE21D2DDD2A002BDA08 /* User.swift */; };
+		034A3CE81D2DDE5C002BDA08 /* OpeningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034A3CE71D2DDE5C002BDA08 /* OpeningViewController.swift */; };
+		034A3CE91D2DDE5C002BDA08 /* OpeningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034A3CE71D2DDE5C002BDA08 /* OpeningViewController.swift */; };
+		034A3CEA1D2DDE5C002BDA08 /* OpeningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034A3CE71D2DDE5C002BDA08 /* OpeningViewController.swift */; };
+		034A3CEC1D2DDE72002BDA08 /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034A3CEB1D2DDE72002BDA08 /* AuthenticationViewController.swift */; };
+		034A3CED1D2DDE72002BDA08 /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034A3CEB1D2DDE72002BDA08 /* AuthenticationViewController.swift */; };
+		034A3CEE1D2DDE72002BDA08 /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034A3CEB1D2DDE72002BDA08 /* AuthenticationViewController.swift */; };
 		035B20E51D29933000439502 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035B20E41D29933000439502 /* AppDelegate.swift */; };
 		035B20ED1D29933000439502 /* tbnb.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 035B20EB1D29933000439502 /* tbnb.xcdatamodeld */; };
 		035B20EF1D29933000439502 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 035B20EE1D29933000439502 /* Assets.xcassets */; };
@@ -68,9 +80,13 @@
 		034A3CBC1D299EA8002BDA08 /* ProfileCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileCoordinator.swift; sourceTree = "<group>"; };
 		034A3CC01D299EBD002BDA08 /* SearchCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCoordinator.swift; sourceTree = "<group>"; };
 		034A3CC41D299ED1002BDA08 /* MealsCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealsCoordinator.swift; sourceTree = "<group>"; };
-		034A3CC91D2AF76C002BDA08 /* MyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyViewController.swift; sourceTree = "<group>"; };
 		034A3CCF1D2C981E002BDA08 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
 		034A3CD31D2C985D002BDA08 /* AuthenticationCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationCoordinator.swift; sourceTree = "<group>"; };
+		034A3CD91D2DDC55002BDA08 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		034A3CDE1D2DDD1C002BDA08 /* Meal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
+		034A3CE21D2DDD2A002BDA08 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		034A3CE71D2DDE5C002BDA08 /* OpeningViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpeningViewController.swift; sourceTree = "<group>"; };
+		034A3CEB1D2DDE72002BDA08 /* AuthenticationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
 		035B20E11D29933000439502 /* tbnb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tbnb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		035B20E41D29933000439502 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		035B20EC1D29933000439502 /* tbnb.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = tbnb.xcdatamodel; sourceTree = "<group>"; };
@@ -174,6 +190,25 @@
 			name = TabBarCoordinator;
 			sourceTree = "<group>";
 		};
+		034A3CDD1D2DDD0F002BDA08 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				034A3CD91D2DDC55002BDA08 /* Result.swift */,
+				034A3CDE1D2DDD1C002BDA08 /* Meal.swift */,
+				034A3CE21D2DDD2A002BDA08 /* User.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		034A3CE61D2DDDE1002BDA08 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				034A3CE71D2DDE5C002BDA08 /* OpeningViewController.swift */,
+				034A3CEB1D2DDE72002BDA08 /* AuthenticationViewController.swift */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
 		035B20D81D29933000439502 = {
 			isa = PBXGroup;
 			children = (
@@ -200,8 +235,9 @@
 		035B20E31D29933000439502 /* tbnb */ = {
 			isa = PBXGroup;
 			children = (
-				034A3CC91D2AF76C002BDA08 /* MyViewController.swift */,
 				034A3CBB1D299B11002BDA08 /* View */,
+				034A3CDD1D2DDD0F002BDA08 /* Model */,
+				034A3CE61D2DDDE1002BDA08 /* ViewController */,
 				034A3CBA1D299AED002BDA08 /* Coordination */,
 			);
 			path = tbnb;
@@ -512,16 +548,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				034A3CE31D2DDD2A002BDA08 /* User.swift in Sources */,
 				035B20E51D29933000439502 /* AppDelegate.swift in Sources */,
 				035B20ED1D29933000439502 /* tbnb.xcdatamodeld in Sources */,
 				034A3CB31D29991B002BDA08 /* StyleSheet.swift in Sources */,
 				034A3CBD1D299EA8002BDA08 /* ProfileCoordinator.swift in Sources */,
+				034A3CDF1D2DDD1C002BDA08 /* Meal.swift in Sources */,
 				034A3CC11D299EBD002BDA08 /* SearchCoordinator.swift in Sources */,
+				034A3CEC1D2DDE72002BDA08 /* AuthenticationViewController.swift in Sources */,
 				034A3CD01D2C981E002BDA08 /* TabBarCoordinator.swift in Sources */,
 				034A3CD41D2C985D002BDA08 /* AuthenticationCoordinator.swift in Sources */,
+				034A3CE81D2DDE5C002BDA08 /* OpeningViewController.swift in Sources */,
 				034A3CB71D299AE4002BDA08 /* ApplicationCoordinator.swift in Sources */,
-				034A3CCA1D2AF76C002BDA08 /* MyViewController.swift in Sources */,
 				034A3CC51D299ED1002BDA08 /* MealsCoordinator.swift in Sources */,
+				034A3CDA1D2DDC55002BDA08 /* Result.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -532,9 +572,13 @@
 				034A3CBE1D299EA8002BDA08 /* ProfileCoordinator.swift in Sources */,
 				034A3CC21D299EBD002BDA08 /* SearchCoordinator.swift in Sources */,
 				034A3CD11D2C981E002BDA08 /* TabBarCoordinator.swift in Sources */,
+				034A3CE91D2DDE5C002BDA08 /* OpeningViewController.swift in Sources */,
 				035B20FD1D29933200439502 /* tbnbTests.swift in Sources */,
-				034A3CCB1D2AF76C002BDA08 /* MyViewController.swift in Sources */,
+				034A3CE01D2DDD1C002BDA08 /* Meal.swift in Sources */,
 				034A3CB41D29991B002BDA08 /* StyleSheet.swift in Sources */,
+				034A3CDB1D2DDC55002BDA08 /* Result.swift in Sources */,
+				034A3CE41D2DDD2A002BDA08 /* User.swift in Sources */,
+				034A3CED1D2DDE72002BDA08 /* AuthenticationViewController.swift in Sources */,
 				034A3CD51D2C985D002BDA08 /* AuthenticationCoordinator.swift in Sources */,
 				034A3CB81D299AE4002BDA08 /* ApplicationCoordinator.swift in Sources */,
 				034A3CC61D299ED1002BDA08 /* MealsCoordinator.swift in Sources */,
@@ -548,9 +592,13 @@
 				034A3CBF1D299EA8002BDA08 /* ProfileCoordinator.swift in Sources */,
 				034A3CC31D299EBD002BDA08 /* SearchCoordinator.swift in Sources */,
 				034A3CD21D2C981E002BDA08 /* TabBarCoordinator.swift in Sources */,
+				034A3CEA1D2DDE5C002BDA08 /* OpeningViewController.swift in Sources */,
 				035B21081D29933200439502 /* tbnbUITests.swift in Sources */,
-				034A3CCC1D2AF76C002BDA08 /* MyViewController.swift in Sources */,
+				034A3CE11D2DDD1C002BDA08 /* Meal.swift in Sources */,
 				034A3CB51D29991B002BDA08 /* StyleSheet.swift in Sources */,
+				034A3CDC1D2DDC55002BDA08 /* Result.swift in Sources */,
+				034A3CE51D2DDD2A002BDA08 /* User.swift in Sources */,
+				034A3CEE1D2DDE72002BDA08 /* AuthenticationViewController.swift in Sources */,
 				034A3CD61D2C985D002BDA08 /* AuthenticationCoordinator.swift in Sources */,
 				034A3CB91D299AE4002BDA08 /* ApplicationCoordinator.swift in Sources */,
 				034A3CC71D299ED1002BDA08 /* MealsCoordinator.swift in Sources */,

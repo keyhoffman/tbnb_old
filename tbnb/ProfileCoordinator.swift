@@ -22,10 +22,4 @@ class ProfileCoordinator: Coordinator {
     }
 }
 
-protocol RemoteContentProviding {
-    associatedtype Content
-    
-    func fetchContent(completion: Result<Content> -> Void)
-    func viewControllerForContent(content: Result<Content>) -> UIViewController
-}
 

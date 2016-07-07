@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 
+/// MARK: - StyleSheet
+
 struct StyleSheet {
     private init() {}
     
@@ -27,6 +29,8 @@ struct StyleSheet {
 //    }
 }
 
+/// MARK: - BackgroundColor
+
 enum BackgroundColor {
     case White
     case Cyan
@@ -44,3 +48,83 @@ enum BackgroundColor {
         }
     }
 }
+
+/// MARK: - ViewControllerTitle
+
+enum ViewControllerTitle {
+    case Opening
+    case Login
+    case SignUp
+    
+    var title: String {
+        switch self {
+        case .Opening: return "Welcome to tbnb"
+        case .Login:   return "Login"
+        case .SignUp:  return "Sign Up"
+        }
+    }
+}
+
+/// MARK: - ButtonTitle
+
+enum ButtonTitle {
+    case Login
+    case SignUp
+    
+    var title: String {
+        switch self {
+        case .Login:   return "Login"
+        case .SignUp:  return "Sign Up"
+        }
+    }
+}
+
+/// MARK: - TextFieldFrame
+/// TODO: FIX this!
+
+
+//enum TextFieldFrame {
+//    case Email
+//    case Password
+//    case Username
+//    
+//    init(view: UIView) {
+//        self = .Email
+//        self.view = view
+//    }
+//    
+//    var view: UIView {
+//        get { return self.view }
+//        set { self.view = newValue }
+//    }
+//    
+//    
+//    
+//    var frame: CGRect {
+//        switch self {
+//        case .Email: return CGRect(x: 0, y: 0, width: 0, height: 0)
+//        case .Password: return CGRect(x: 0, y: 0, width: 0, height: 0)
+//        case .Username: return CGRect(x: 0, y: 0, width: 0, height: 0)
+//        }
+//    }
+//}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

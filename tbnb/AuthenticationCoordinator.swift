@@ -9,64 +9,49 @@
 import Foundation
 import UIKit
 
-
-enum Result<T> {
-//    case Success(@autoclosure () -> T) //// GAYYYYYY
-    case Failure(ErrorType)
-}
-
-func re(@autoclosure r: Void -> Void) {
-    
-}
-
-protocol OpeningViewControllerDelegate: class {
-    var loginButton:  UIBarButtonItem { get }
-    var signUpButton: UIBarButtonItem { get }
-    
-    func loginButtonPressed(sender: MyViewController)
-    func signUpButtonPressed(sender: UIBarButtonItem)
-}
-
-class AuthenticationCoordinator: Coordinator, OpeningViewControllerDelegate {
+class AuthenticationCoordinator: Coordinator, OpeningViewControllerDelegate, AuthenticationViewControllerDelegate {
     
     let window: UIWindow
     let rootViewController = UINavigationController()
     
-    private let openingViewController: MyViewController
-    private let signUpViewController:  MyViewController
-    private let loginViewController:   MyViewController
+    private let openingViewController: OpeningViewController
+    private let signUpViewController:  AuthenticationViewController
+    private let loginViewController:   AuthenticationViewController
     
-    let loginButton:  UIBarButtonItem
-    let signUpButton: UIBarButtonItem
-    
+        
     init(window: UIWindow) {
         self.window = window
         
-        self.openingViewController = MyViewController()
-        self.signUpViewController  = MyViewController()
-        self.loginViewController   = MyViewController()
+        self.openingViewController = OpeningViewController()
+        self.signUpViewController  = AuthenticationViewController(authenticationAction: .SignUp)
+        self.loginViewController   = AuthenticationViewController(authenticationAction: .Login)
         
-        self.loginButton = UIBarButtonItem(title: "Login", style: .Plain, target: nil, action: #selector(AuthenticationCoordinator.loginButtonPressed(_:)))
-        self.signUpButton = UIBarButtonItem(title: "Sign Up", style: .Plain, target: nil, action: #selector(AuthenticationCoordinator.signUpButtonPressed(_:)))
-        
-        self.openingViewController.title = "OPEN"
-        self.openingViewController.view.backgroundColor = BackgroundColor.LightGray.color
-        self.openingViewController.navigationItem.rightBarButtonItem = loginButton
-        self.openingViewController.navigationItem.leftBarButtonItem  = signUpButton
         self.openingViewController.delegate = self
     }
     
     func start() {
         window.rootViewController = rootViewController
         window.makeKeyAndVisible()
-        rootViewController.pushViewController(openingViewController, animated: true)
+        rootViewController.pushViewController(openingViewController, animated: false)
     }
     
-    @objc func loginButtonPressed(sender: MyViewController) {
-        print("Login")
+    /// MARK: - AuthenticationViewControllerDelegate Methods
+    
+    func signUp(sender: AuthenticationViewController) {
+        
     }
     
-    @objc func signUpButtonPressed(sender: UIBarButtonItem) {
-        print("Sign Up")
+    func login(sender: AuthenticationViewController) {
+        
+    }
+    
+    /// MARK: - OpeningViewControllerDelegate Methods
+    
+    func navigateToLoginButtonPressed(sender: OpeningViewController) {
+        rootViewController.pushViewController(loginViewController, animated: true)
+    }
+    
+    func navigateToSignUpButtonPressed(sender: OpeningViewController) {
+        rootViewController.pushViewController(signUpViewController, animated: true)
     }
 }
