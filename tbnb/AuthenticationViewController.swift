@@ -20,13 +20,21 @@ enum AuthenticationAction {
 
 class AuthenticationViewController: UIViewController, UITextFieldDelegate {
 
+    /// MARK: - AuthenticationViewControllerDelegate
+    
     weak var delegate: AuthenticationViewControllerDelegate?
+    
+    /// MARK: - TextField Declarations
     
     let emailTextField:    UITextField
     let passwordTextField: UITextField
     let usernameTextField: UITextField
     
+    /// MARK: - AuthenticationAction
+    
     let action: AuthenticationAction
+    
+    /// MARK: - init()
     
     init(authenticationAction action: AuthenticationAction) {
         self.action = action
@@ -42,12 +50,34 @@ class AuthenticationViewController: UIViewController, UITextFieldDelegate {
         fatalError("init(coder:) has not been implemented")
     }
     
+    /// MARK: - ViewController Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setTitle()
         setTextFields()
         view.backgroundColor = BackgroundColor.Red.color
     }
+    
+    /// MARK: - TextField Delegate Methods
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        print("resturnnnnnnnnnn")
+        switch action {
+        case .Login:  delegate?.login(self)
+        case .SignUp: delegate?.signUp(self)
+        }
+//        switch textField {
+//        case emailTextField:
+//            <#code#>
+//        case passwordTextField:
+//        case usernameTextField: break
+//        }
+        return true
+    }
+    
+    
+    /// MARK: - Set View Properties
     
     private func setTextFields() {
         
@@ -59,27 +89,30 @@ class AuthenticationViewController: UIViewController, UITextFieldDelegate {
         
         view.addSubview(emailTextField)
         view.addSubview(passwordTextField)
-        switch action {
-        case .SignUp: view.addSubview(usernameTextField)
-        case .Login:  break
-        }
+        view.addSubview(usernameTextField)
 
         emailTextField.snp_makeConstraints { make in
-            make.left.equalTo(view).offset(20)
-            make.right.equalTo(view).inset(20)
             make.centerX.equalTo(view.snp_centerX)
-            make.top.equalTo(100)
-            make.height.equalTo(75)
+            make.width.equalTo(view).multipliedBy(AuthenticationEmailTextFieldFrame.WidthToViewFactor.value)
+            make.height.equalTo(view).multipliedBy(AuthenticationEmailTextFieldFrame.HeightToViewFactor.value)
+            make.top.equalTo(view).offset(view.bounds.height * AuthenticationEmailTextFieldFrame.TopToViewFactor.value)
         }
         
         passwordTextField.snp_makeConstraints { make in
-            
+            make.width.equalTo(emailTextField)
+            make.centerX.equalTo(emailTextField)
+            make.top.equalTo(emailTextField.snp_bottom)
+            make.height.equalTo(emailTextField)
         }
         
-        usernameTextField.snp_makeConstraints { make in
-            
+        if action == .SignUp {
+            usernameTextField.snp_makeConstraints { make in
+                make.width.equalTo(emailTextField)
+                make.centerX.equalTo(emailTextField)
+                make.top.equalTo(passwordTextField.snp_bottom)
+                make.height.equalTo(emailTextField)
+            }
         }
-        
         
     }
     

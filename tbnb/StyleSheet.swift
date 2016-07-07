@@ -83,31 +83,17 @@ enum ButtonTitle {
 /// TODO: FIX this!
 
 
-//enum TextFieldFrame {
-//    case Email
-//    case Password
-//    case Username
-//    
-//    init(view: UIView) {
-//        self = .Email
-//        self.view = view
-//    }
-//    
-//    var view: UIView {
-//        get { return self.view }
-//        set { self.view = newValue }
-//    }
-//    
-//    
-//    
-//    var frame: CGRect {
-//        switch self {
-//        case .Email: return CGRect(x: 0, y: 0, width: 0, height: 0)
-//        case .Password: return CGRect(x: 0, y: 0, width: 0, height: 0)
-//        case .Username: return CGRect(x: 0, y: 0, width: 0, height: 0)
-//        }
-//    }
-//}
+enum AuthenticationEmailTextFieldFrame {
+    case WidthToViewFactor, HeightToViewFactor, TopToViewFactor
+    
+    var value: CGFloat {
+        switch self {
+        case .WidthToViewFactor:  return 0.80
+        case .HeightToViewFactor: return 0.05
+        case .TopToViewFactor:    return 0.20
+        }
+    }
+}
 
 
 

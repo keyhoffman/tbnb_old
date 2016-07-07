@@ -38,11 +38,11 @@ class AuthenticationCoordinator: Coordinator, OpeningViewControllerDelegate, Aut
     /// MARK: - AuthenticationViewControllerDelegate Methods
     
     func signUp(sender: AuthenticationViewController) {
-        
+        print("SIGN UP")
     }
     
     func login(sender: AuthenticationViewController) {
-        
+        print("LOGIN")
     }
     
     /// MARK: - OpeningViewControllerDelegate Methods
