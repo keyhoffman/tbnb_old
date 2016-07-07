@@ -107,7 +107,17 @@ extension UITextField {
     func clearText() {
         self.text = ""
     }
+    
+    func defaultSettings() {
+        self.adjustsFontSizeToFitWidth = true
+        self.autocapitalizationType = .None
+        self.autocorrectionType = .No
+        self.clearButtonMode = .Always
+        self.keyboardAppearance = .Dark
+        self.keyboardType = .Default
+    }
 }
+
 
 
 

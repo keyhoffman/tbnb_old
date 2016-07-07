@@ -10,9 +10,22 @@ import Foundation
 import UIKit
 import Firebase
 
+/// MARK: - AuthenticationCoordinatorDelegate Protocol
+
+protocol AuthenticationCoordinatorDelegate: class {
+    func userHasBeenAuthenticated(authenticatedUser user: User, sender: AuthenticationCoordinator)
+    func userHasBeenLoggedOut(sender: AuthenticationCoordinator)
+}
+
+/// MARK: - AuthenticationCoordinator
+
 class AuthenticationCoordinator: Coordinator, OpeningViewControllerDelegate, AuthenticationViewControllerDelegate {
     
-    /// MARK: - Root Properties
+    /// MARK: - AuthenticationCoordinatorDelegate Declaration
+    
+    weak var delegate: AuthenticationCoordinatorDelegate?
+    
+    /// MARK: - Root Property Declarations
     
     let window: UIWindow
     let rootViewController = UINavigationController()
@@ -59,7 +72,6 @@ class AuthenticationCoordinator: Coordinator, OpeningViewControllerDelegate, Aut
             if let error = error {
                 print(error.localizedDescription)
                 return
-//                fatalError(error.localizedDescription)
             }
             guard let user = user else { return }
             let changeRequest = user.profileChangeRequest()
@@ -68,10 +80,10 @@ class AuthenticationCoordinator: Coordinator, OpeningViewControllerDelegate, Aut
                 if let error = error {
                     print(error.localizedDescription)
                     return
-//                    fatalError(error.localizedDescription)
                 }
-                let user = User(key: user.uid, name: username, email: email)
-                user.sendToFB()
+                let logggedInUser = User(key: user.uid, username: username, email: email)
+                logggedInUser.sendToFB()
+                self.delegate?.userHasBeenAuthenticated(authenticatedUser: logggedInUser, sender: self)
                 return
             }
         }
@@ -83,8 +95,11 @@ class AuthenticationCoordinator: Coordinator, OpeningViewControllerDelegate, Aut
             if let error = error {
                 print(error.localizedDescription)
                 return
-//                fatalError(error.localizedDescription)
             }
+            guard let user = user, let email = user.email, let username = user.displayName else { return }
+            let loggedInUser = User(key: user.uid, username: username, email: email)
+            self.delegate?.userHasBeenAuthenticated(authenticatedUser: loggedInUser, sender: self)
+            return
         }
     }
     

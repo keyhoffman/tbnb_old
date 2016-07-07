@@ -23,13 +23,8 @@ extension FirebaseType { var RootRef: FIRDatabaseReference { return FIRDatabase.
 
 /// MARK: - FirebaseSendable Protocol
 
-enum FBType {
-    case User, Meal
-}
-
 protocol FirebaseSendable: FirebaseType, Equatable {
     var key: String { get }
-    var fbType: FBType { get }
     
     static var NeedsAutoID: Bool     { get }
     static var Path:        String   { get }
@@ -39,7 +34,7 @@ protocol FirebaseSendable: FirebaseType, Equatable {
 extension FirebaseSendable {
     func sendToFB() {
         guard let FBDict = convertToFBSendable() else { return }
-        print("-- FBDump --")
+        print("-- FBDictDump --")
         dump(FBDict)
         if Self.NeedsAutoID { self.RootRef.child(Self.Path).childByAutoId().setValue(FBDict) }
         else {
@@ -56,11 +51,7 @@ extension FirebaseSendable {
             print("label = \(label), value = \(value)")
             FBDict[label] = value as? AnyObject
         }
-        switch fbType {
-        case .User:
-            return Dictionary(FBDict.filter { $0.0 == "name" || $0.0 == "email" })
-        case .Meal: return ["A" : 4]
-        }
+        return Dictionary(FBDict.filter { Self.FBSubKeys.contains($0.0) })
     }
 }
 

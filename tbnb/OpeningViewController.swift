@@ -9,17 +9,27 @@
 import UIKit
 import Foundation
 
+/// MARK: - OpeningViewControllerDelegate Protocol
+
 protocol OpeningViewControllerDelegate: class {    
     func navigateToLoginButtonPressed(sender: OpeningViewController)
     func navigateToSignUpButtonPressed(sender: OpeningViewController)
 }
 
+/// MARK: - OpeningViewController
+
 class OpeningViewController: UIViewController {
+    
+    /// MARK: - OpeningViewControllerDelegate Declaration
     
     weak var delegate: OpeningViewControllerDelegate?
     
+    /// MARK: - UIBarButtonItem Declarations
+    
     let navigateToLoginButton:  UIBarButtonItem
     let navigateToSignUpButton: UIBarButtonItem
+    
+    /// MARK: - OpeningViewController Initializer
     
     init() {
         navigateToLoginButton  = UIBarButtonItem()
@@ -31,6 +41,8 @@ class OpeningViewController: UIViewController {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    /// MARK: - OpeningViewController Lifecycle Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,6 +60,8 @@ class OpeningViewController: UIViewController {
         navigationItem.rightBarButtonItem = navigateToLoginButton
         navigationItem.leftBarButtonItem  = navigateToSignUpButton
     }
+    
+    /// MARK: - Navigation Action Methods
     
     func navigateToLoginViewController(sender: UIBarButtonItem) {
         delegate?.navigateToLoginButtonPressed(self)

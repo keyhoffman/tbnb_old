@@ -7,22 +7,21 @@
 //
 
 import Foundation
-import Firebase
+
+/// MARK: - User
 
 struct User: FirebaseSendable {
-    let key:    String
-    let name:   String
-    let email:  String
-    
-    let fbType: FBType = .User
+    let key:        String
+    let username:   String
+    let email:      String
 }
 
 extension User {
     static let Path        = "users/"
     static let NeedsAutoID = false
-    static let FBSubKeys   = ["name", "email"]
+    static let FBSubKeys   = ["username", "email"]
 }
 
 func == (lhs: User, rhs: User) -> Bool {
-    return lhs.key == rhs.key && lhs.name == rhs.name && lhs.email == rhs.email
+    return lhs.key == rhs.key && lhs.username == rhs.username && lhs.email == rhs.email
 }

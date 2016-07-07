@@ -8,14 +8,14 @@
 
 import Foundation
 
+/// MARK - Meal
+
 struct Meal: FirebaseSendable {
     let key:            String /// each meal's key is equal to the key of the user that created it
     let name:           String
     let pricePerPerson: Double
     let feeds:          Int
     let chef:           User
-    
-    let fbType: FBType = .Meal
 }
 
 extension Meal {

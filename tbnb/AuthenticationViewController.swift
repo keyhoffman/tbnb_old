@@ -9,16 +9,7 @@
 import UIKit
 import SnapKit
 
-extension UITextField {
-    func defaultSettings() {
-        self.adjustsFontSizeToFitWidth = true
-        self.autocapitalizationType = .None
-        self.autocorrectionType = .No
-        self.clearButtonMode = .Always
-        self.keyboardAppearance = .Dark
-        self.keyboardType = .Default
-    }
-}
+/// MARK: - AuthenticationViewControllerDelegate Protocol
 
 protocol AuthenticationViewControllerDelegate: class {
     var enteredEmail:    String? { get set }
@@ -29,9 +20,15 @@ protocol AuthenticationViewControllerDelegate: class {
     func login(sender: AuthenticationViewController)
 }
 
+/// MARK: - AuthenticationAction
+/// TODO: - Move elsewhere
+
 enum AuthenticationAction {
     case Login, SignUp
 }
+
+/// MARK: - AuthTextField
+/// TODO: - Move elsewhere
 
 enum AuthTextField {
     case Email
