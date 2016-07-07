@@ -32,11 +32,7 @@ struct StyleSheet {
 /// MARK: - BackgroundColor
 
 enum BackgroundColor {
-    case White
-    case Cyan
-    case LightGray
-    case Blue
-    case Red
+    case White, Cyan, LightGray, Blue, Red
     
     var color: UIColor {
         switch self {
@@ -52,9 +48,7 @@ enum BackgroundColor {
 /// MARK: - ViewControllerTitle
 
 enum ViewControllerTitle {
-    case Opening
-    case Login
-    case SignUp
+    case Opening, Login, SignUp
     
     var title: String {
         switch self {
@@ -68,8 +62,7 @@ enum ViewControllerTitle {
 /// MARK: - ButtonTitle
 
 enum ButtonTitle {
-    case Login
-    case SignUp
+    case Login, SignUp
     
     var title: String {
         switch self {
@@ -79,9 +72,7 @@ enum ButtonTitle {
     }
 }
 
-/// MARK: - TextFieldFrame
-/// TODO: FIX this!
-
+/// MARK: - AuthenticationEmailTextFieldFrame
 
 enum AuthenticationEmailTextFieldFrame {
     case WidthToViewFactor, HeightToViewFactor, TopToViewFactor
@@ -92,6 +83,29 @@ enum AuthenticationEmailTextFieldFrame {
         case .HeightToViewFactor: return 0.05
         case .TopToViewFactor:    return 0.20
         }
+    }
+}
+
+/// MARK: - TextFieldPlaceholder
+
+enum TextFieldPlaceholder {
+    case Email, Password, Username
+    
+    var text: String {
+        switch self {
+        case .Email:    return "Enter your email"
+        case .Password: return "Enter your password"
+        case .Username: return "Enter your username"
+        }
+    }
+}
+
+/// MARK: - UITextField Extension
+/// TODO: - Move away from style sheet
+
+extension UITextField {
+    func clearText() {
+        self.text = ""
     }
 }
 

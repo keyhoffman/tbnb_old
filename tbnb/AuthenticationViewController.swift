@@ -9,13 +9,40 @@
 import UIKit
 import SnapKit
 
+extension UITextField {
+    func defaultSettings() {
+        self.adjustsFontSizeToFitWidth = true
+        self.autocapitalizationType = .None
+        self.autocorrectionType = .No
+        self.clearButtonMode = .Always
+        self.keyboardAppearance = .Dark
+        self.keyboardType = .Default
+    }
+}
+
 protocol AuthenticationViewControllerDelegate: class {
+    var enteredEmail:    String? { get set }
+    var enteredPassword: String? { get set }
+    var enteredUsername: String? { get set }
+    
     func signUp(sender: AuthenticationViewController)
     func login(sender: AuthenticationViewController)
 }
 
 enum AuthenticationAction {
     case Login, SignUp
+}
+
+enum AuthTextField {
+    case Email
+    case Password
+    case Username
+    
+    var textField: UITextField {
+        let tf = UITextField()
+        tf.defaultSettings()
+        return tf
+    }
 }
 
 class AuthenticationViewController: UIViewController, UITextFieldDelegate {
@@ -39,9 +66,9 @@ class AuthenticationViewController: UIViewController, UITextFieldDelegate {
     init(authenticationAction action: AuthenticationAction) {
         self.action = action
         
-        emailTextField    = UITextField()
-        passwordTextField = UITextField()
-        usernameTextField = UITextField()
+        emailTextField    = AuthTextField.Email.textField
+        passwordTextField = AuthTextField.Password.textField
+        usernameTextField = AuthTextField.Username.textField
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -62,17 +89,28 @@ class AuthenticationViewController: UIViewController, UITextFieldDelegate {
     /// MARK: - TextField Delegate Methods
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        print("resturnnnnnnnnnn")
-        switch action {
-        case .Login:  delegate?.login(self)
-        case .SignUp: delegate?.signUp(self)
+        guard let text = textField.text else { return false }
+        if text.isEmpty { return false }
+        switch textField {
+        case emailTextField:
+            delegate?.enteredEmail = text
+            emailTextField.resignFirstResponder()
+            passwordTextField.becomeFirstResponder()
+            passwordTextField.hidden = false
+        case passwordTextField:
+            delegate?.enteredPassword = text
+            switch action {
+            case .Login: delegate?.login(self)
+            case .SignUp:
+                passwordTextField.resignFirstResponder()
+                usernameTextField.becomeFirstResponder()
+                usernameTextField.hidden = false
+            }
+        case usernameTextField:
+            delegate?.enteredUsername = text
+            delegate?.signUp(self)
+        default: fatalError("Invalid textfield")
         }
-//        switch textField {
-//        case emailTextField:
-//            <#code#>
-//        case passwordTextField:
-//        case usernameTextField: break
-//        }
         return true
     }
     
@@ -85,7 +123,20 @@ class AuthenticationViewController: UIViewController, UITextFieldDelegate {
         passwordTextField.backgroundColor = BackgroundColor.LightGray.color
         usernameTextField.backgroundColor = BackgroundColor.Cyan.color
         
+        emailTextField.placeholder    = TextFieldPlaceholder.Email.text
+        passwordTextField.placeholder = TextFieldPlaceholder.Password.text
+        usernameTextField.placeholder = TextFieldPlaceholder.Username.text
+        
+        emailTextField.delegate    = self
+        passwordTextField.delegate = self
+        usernameTextField.delegate = self
+        
         emailTextField.becomeFirstResponder()
+        
+        passwordTextField.hidden = true
+        usernameTextField.hidden = true
+        
+        passwordTextField.secureTextEntry = true
         
         view.addSubview(emailTextField)
         view.addSubview(passwordTextField)
@@ -105,13 +156,12 @@ class AuthenticationViewController: UIViewController, UITextFieldDelegate {
             make.height.equalTo(emailTextField)
         }
         
-        if action == .SignUp {
-            usernameTextField.snp_makeConstraints { make in
-                make.width.equalTo(emailTextField)
-                make.centerX.equalTo(emailTextField)
-                make.top.equalTo(passwordTextField.snp_bottom)
-                make.height.equalTo(emailTextField)
-            }
+        usernameTextField.snp_makeConstraints { make in
+            make.width.equalTo(emailTextField)
+            make.centerX.equalTo(emailTextField)
+            make.top.equalTo(passwordTextField.snp_bottom)
+            make.height.equalTo(emailTextField)
+        
         }
         
     }

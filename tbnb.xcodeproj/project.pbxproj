@@ -43,6 +43,9 @@
 		034A3CEC1D2DDE72002BDA08 /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034A3CEB1D2DDE72002BDA08 /* AuthenticationViewController.swift */; };
 		034A3CED1D2DDE72002BDA08 /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034A3CEB1D2DDE72002BDA08 /* AuthenticationViewController.swift */; };
 		034A3CEE1D2DDE72002BDA08 /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034A3CEB1D2DDE72002BDA08 /* AuthenticationViewController.swift */; };
+		034A3CF21D2EF0C6002BDA08 /* FirebaseTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034A3CF11D2EF0C6002BDA08 /* FirebaseTypes.swift */; };
+		034A3CF31D2EF0C6002BDA08 /* FirebaseTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034A3CF11D2EF0C6002BDA08 /* FirebaseTypes.swift */; };
+		034A3CF41D2EF0C6002BDA08 /* FirebaseTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034A3CF11D2EF0C6002BDA08 /* FirebaseTypes.swift */; };
 		035B20E51D29933000439502 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035B20E41D29933000439502 /* AppDelegate.swift */; };
 		035B20ED1D29933000439502 /* tbnb.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 035B20EB1D29933000439502 /* tbnb.xcdatamodeld */; };
 		035B20EF1D29933000439502 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 035B20EE1D29933000439502 /* Assets.xcassets */; };
@@ -87,6 +90,7 @@
 		034A3CE21D2DDD2A002BDA08 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		034A3CE71D2DDE5C002BDA08 /* OpeningViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpeningViewController.swift; sourceTree = "<group>"; };
 		034A3CEB1D2DDE72002BDA08 /* AuthenticationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
+		034A3CF11D2EF0C6002BDA08 /* FirebaseTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseTypes.swift; sourceTree = "<group>"; };
 		035B20E11D29933000439502 /* tbnb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tbnb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		035B20E41D29933000439502 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		035B20EC1D29933000439502 /* tbnb.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = tbnb.xcdatamodel; sourceTree = "<group>"; };
@@ -196,6 +200,7 @@
 				034A3CD91D2DDC55002BDA08 /* Result.swift */,
 				034A3CDE1D2DDD1C002BDA08 /* Meal.swift */,
 				034A3CE21D2DDD2A002BDA08 /* User.swift */,
+				034A3CF11D2EF0C6002BDA08 /* FirebaseTypes.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -549,6 +554,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				034A3CE31D2DDD2A002BDA08 /* User.swift in Sources */,
+				034A3CF21D2EF0C6002BDA08 /* FirebaseTypes.swift in Sources */,
 				035B20E51D29933000439502 /* AppDelegate.swift in Sources */,
 				035B20ED1D29933000439502 /* tbnb.xcdatamodeld in Sources */,
 				034A3CB31D29991B002BDA08 /* StyleSheet.swift in Sources */,
@@ -571,6 +577,7 @@
 			files = (
 				034A3CBE1D299EA8002BDA08 /* ProfileCoordinator.swift in Sources */,
 				034A3CC21D299EBD002BDA08 /* SearchCoordinator.swift in Sources */,
+				034A3CF31D2EF0C6002BDA08 /* FirebaseTypes.swift in Sources */,
 				034A3CD11D2C981E002BDA08 /* TabBarCoordinator.swift in Sources */,
 				034A3CE91D2DDE5C002BDA08 /* OpeningViewController.swift in Sources */,
 				035B20FD1D29933200439502 /* tbnbTests.swift in Sources */,
@@ -591,6 +598,7 @@
 			files = (
 				034A3CBF1D299EA8002BDA08 /* ProfileCoordinator.swift in Sources */,
 				034A3CC31D299EBD002BDA08 /* SearchCoordinator.swift in Sources */,
+				034A3CF41D2EF0C6002BDA08 /* FirebaseTypes.swift in Sources */,
 				034A3CD21D2C981E002BDA08 /* TabBarCoordinator.swift in Sources */,
 				034A3CEA1D2DDE5C002BDA08 /* OpeningViewController.swift in Sources */,
 				035B21081D29933200439502 /* tbnbUITests.swift in Sources */,
