@@ -27,8 +27,8 @@ class AuthenticationCoordinator: Coordinator, OpeningViewControllerDelegate, Aut
     
     /// MARK: - Root Property Declarations
     
-    let window: UIWindow
-    let rootViewController = UINavigationController()
+    private let window: UIWindow
+    private let rootViewController = UINavigationController()
     
     /// MARK: ViewController Declarations
     
@@ -47,13 +47,13 @@ class AuthenticationCoordinator: Coordinator, OpeningViewControllerDelegate, Aut
     init(window: UIWindow) {
         self.window = window
         
-        self.openingViewController = OpeningViewController()
-        self.signUpViewController  = AuthenticationViewController(authenticationAction: .SignUp)
-        self.loginViewController   = AuthenticationViewController(authenticationAction: .Login)
+        openingViewController = OpeningViewController()
+        signUpViewController  = AuthenticationViewController(authenticationAction: .SignUp)
+        loginViewController   = AuthenticationViewController(authenticationAction: .Login)
         
-        self.openingViewController.delegate = self
-        self.signUpViewController.delegate  = self
-        self.loginViewController.delegate   = self
+        openingViewController.delegate = self
+        signUpViewController.delegate  = self
+        loginViewController.delegate   = self
     }
     
     /// MARK: - Coordinator Methods

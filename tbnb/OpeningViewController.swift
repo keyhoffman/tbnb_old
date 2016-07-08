@@ -26,21 +26,8 @@ class OpeningViewController: UIViewController {
     
     /// MARK: - UIBarButtonItem Declarations
     
-    let navigateToLoginButton:  UIBarButtonItem
-    let navigateToSignUpButton: UIBarButtonItem
-    
-    /// MARK: - OpeningViewController Initializer
-    
-    init() {
-        navigateToLoginButton  = UIBarButtonItem()
-        navigateToSignUpButton = UIBarButtonItem()
-        
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    private let navigateToLoginButton  =  UIBarButtonItem()
+    private let navigateToSignUpButton = UIBarButtonItem()
     
     /// MARK: - OpeningViewController Lifecycle Methods
     

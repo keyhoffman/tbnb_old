@@ -1,5 +1,5 @@
 //
-//  ProfileCoordinator.swift
+//  SearchCoordinator.swift
 //  tbnb
 //
 //  Created by Key Hoffman on 7/3/16.
@@ -9,19 +9,19 @@
 import Foundation
 import UIKit
 
-/// MARK: - ProfileCoordinator Delegate
+/// MARK: - AddMealCoordinatorDelegate Protocol
 
-protocol ProfileCoordinatorDelegate: class {
+protocol AddMealCoordinatorDelegate: class {
     
 }
 
-/// MARK: - ProfileCoordinator
+/// MARK: - SearchCoordinator
 
-class ProfileCoordinator: Coordinator {
+class AddMealCoordinator: Coordinator {
     
-    /// MARK: - SearchCoordinatorDelegate Declaration
+    /// MARK: - AddMealCoordinatorDelegate Declaration
     
-    weak var delegate: ProfileCoordinatorDelegate?
+    weak var delegate: AddMealCoordinatorDelegate?
     
     /// MARK: - NavigationController Declaration
     
@@ -29,8 +29,8 @@ class ProfileCoordinator: Coordinator {
     
     /// MARK: - ViewContoller Declaration
     
-    private let profileTableViewController = UITableViewController()
-    
+    private let addMealViewController = UIViewController()
+
     /// MARK: - SearchCoordinator Initializer
     
     init(navigationController: UINavigationController) {
@@ -40,8 +40,6 @@ class ProfileCoordinator: Coordinator {
     /// MARK: - Coordinator Methods
     
     func start() {
-        navigationController.pushViewController(profileTableViewController, animated: false)
+        navigationController.pushViewController(addMealViewController, animated: false)
     }
 }
-
-

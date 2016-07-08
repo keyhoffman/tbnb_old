@@ -27,20 +27,7 @@ enum AuthenticationAction {
     case Login, SignUp
 }
 
-/// MARK: - AuthTextField
-/// TODO: - Move elsewhere
-
-enum AuthTextField {
-    case Email
-    case Password
-    case Username
-    
-    var textField: UITextField {
-        let tf = UITextField()
-        tf.defaultSettings()
-        return tf
-    }
-}
+/// MARK: - AuthenticationViewController
 
 class AuthenticationViewController: UIViewController, UITextFieldDelegate {
 
@@ -50,23 +37,18 @@ class AuthenticationViewController: UIViewController, UITextFieldDelegate {
     
     /// MARK: - TextField Declarations
     
-    let emailTextField:    UITextField
-    let passwordTextField: UITextField
-    let usernameTextField: UITextField
+    private let emailTextField    = AuthTextField.Email.textField
+    private let passwordTextField = AuthTextField.Password.textField
+    private let usernameTextField = AuthTextField.Username.textField
     
     /// MARK: - AuthenticationAction
     
-    let action: AuthenticationAction
+    private let action: AuthenticationAction
     
-    /// MARK: - init()
+    /// MARK: - AuthenticationViewController Initializer
     
     init(authenticationAction action: AuthenticationAction) {
         self.action = action
-        
-        emailTextField    = AuthTextField.Email.textField
-        passwordTextField = AuthTextField.Password.textField
-        usernameTextField = AuthTextField.Username.textField
-        
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -120,9 +102,9 @@ class AuthenticationViewController: UIViewController, UITextFieldDelegate {
         passwordTextField.backgroundColor = BackgroundColor.LightGray.color
         usernameTextField.backgroundColor = BackgroundColor.Cyan.color
         
-        emailTextField.placeholder    = TextFieldPlaceholder.Email.text
-        passwordTextField.placeholder = TextFieldPlaceholder.Password.text
-        usernameTextField.placeholder = TextFieldPlaceholder.Username.text
+        emailTextField.placeholder    = AuthTextField.Email.placeholder
+        passwordTextField.placeholder = AuthTextField.Password.placeholder
+        usernameTextField.placeholder = AuthTextField.Username.placeholder
         
         emailTextField.delegate    = self
         passwordTextField.delegate = self
@@ -141,9 +123,9 @@ class AuthenticationViewController: UIViewController, UITextFieldDelegate {
 
         emailTextField.snp_makeConstraints { make in
             make.centerX.equalTo(view.snp_centerX)
-            make.width.equalTo(view).multipliedBy(AuthenticationEmailTextFieldFrame.WidthToViewFactor.value)
-            make.height.equalTo(view).multipliedBy(AuthenticationEmailTextFieldFrame.HeightToViewFactor.value)
-            make.top.equalTo(view).offset(view.bounds.height * AuthenticationEmailTextFieldFrame.TopToViewFactor.value)
+            make.width.equalTo(view).multipliedBy(AuthTextField.Frame.WidthToViewWidthFactor.value)
+            make.height.equalTo(view).multipliedBy(AuthTextField.Frame.HeightToViewHeightFactor.value)
+            make.top.equalTo(view).offset(view.bounds.height * AuthTextField.Frame.TopToViewTopFactor.value)
         }
         
         passwordTextField.snp_makeConstraints { make in

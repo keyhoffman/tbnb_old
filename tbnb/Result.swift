@@ -7,7 +7,8 @@
 //
 
 import Foundation
-import UIKit
+
+/// MARK: - ResultType Protocol
 
 protocol ResultType {
     associatedtype Value
@@ -20,6 +21,7 @@ protocol ResultType {
     var error: ErrorType? { get }
 }
 
+/// MARK - Result
 
 enum Result<T, Error: ErrorType>: ResultType {
     typealias Value = T
@@ -35,9 +37,4 @@ enum Result<T, Error: ErrorType>: ResultType {
     
 }
 
-protocol RemoteContentProviding {
-    associatedtype Content
-    
-    func fetchContent(completion: Result<Content, NSError> -> Void)
-    func viewControllerForContent(content: Result<Content, NSError>) -> UIViewController
-}
+

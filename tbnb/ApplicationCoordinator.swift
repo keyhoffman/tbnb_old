@@ -22,23 +22,23 @@ class ApplicationCoordinator: Coordinator, AuthenticationCoordinatorDelegate, Ta
     
     /// MARK: - UIWindow
     
-    let window: UIWindow
+    private let window: UIWindow
     
     /// MARK: - Sub-Coordinator Declarations
     
-    let authenticationCoordinator: AuthenticationCoordinator
-    let tabBarCoordinator:         TabBarCoordinator
+    private let authenticationCoordinator: AuthenticationCoordinator
+    private let tabBarCoordinator:         TabBarCoordinator
     
     /// MARK: - ApplicationCoordinator Initializer
     
     init(window: UIWindow) {
         self.window = window
         
-        self.authenticationCoordinator = AuthenticationCoordinator(window: self.window)
-        self.tabBarCoordinator         = TabBarCoordinator(window: self.window)
+        authenticationCoordinator = AuthenticationCoordinator(window: self.window)
+        tabBarCoordinator         = TabBarCoordinator(window: self.window)
         
-        self.authenticationCoordinator.delegate = self
-        self.tabBarCoordinator.delegate         = self
+        authenticationCoordinator.delegate = self
+        tabBarCoordinator.delegate         = self
     }
     
     /// MARK: - Coordinator Methods
@@ -58,6 +58,7 @@ class ApplicationCoordinator: Coordinator, AuthenticationCoordinatorDelegate, Ta
     func userHasBeenAuthenticated(authenticatedUser user: User, sender: AuthenticationCoordinator) {
         print("-- authenticatedUserDump --")
         dump(user)
+        tabBarCoordinator.start()
     }
     
     /// MARK: - TabBarCoordinatorDelegate Methods

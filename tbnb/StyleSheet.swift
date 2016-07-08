@@ -72,38 +72,70 @@ enum ButtonTitle {
     }
 }
 
-/// MARK: - AuthenticationEmailTextFieldFrame
+/// MARK: - AuthTextField
 
-enum AuthenticationEmailTextFieldFrame {
-    case WidthToViewFactor, HeightToViewFactor, TopToViewFactor
-    
-    var value: CGFloat {
-        switch self {
-        case .WidthToViewFactor:  return 0.80
-        case .HeightToViewFactor: return 0.05
-        case .TopToViewFactor:    return 0.20
-        }
-    }
-}
-
-/// MARK: - TextFieldPlaceholder
-
-enum TextFieldPlaceholder {
+enum AuthTextField {
     case Email, Password, Username
     
-    var text: String {
+    var textField: UITextField {
+        let tf = UITextField()
+        tf.defaultSettings()
+        return tf
+    }
+    
+    var placeholder: String {
         switch self {
         case .Email:    return "Enter your email"
         case .Password: return "Enter your password"
         case .Username: return "Enter your username"
         }
     }
+    
+    enum Frame {
+        case WidthToViewWidthFactor, HeightToViewHeightFactor, TopToViewTopFactor
+        
+        var value: CGFloat {
+            switch self {
+            case .WidthToViewWidthFactor:   return 0.80
+            case .HeightToViewHeightFactor: return 0.05
+            case .TopToViewTopFactor:       return 0.20
+            }
+        }
+
+    }
 }
 
-/// MARK: - UITextField Extension
-/// TODO: - Move away from style sheet
+/// MARK: - TabBarNavigationController
 
-extension UITextField {
+enum TabBarNavigationController {
+    case Meals, AddMeal, Profile
+    
+    var navigationController: UINavigationController { return UINavigationController() }
+    
+    var tabBarItemTitle: String {
+        switch self {
+        case .Meals:   return "Meals"
+        case .AddMeal: return "Add Meal"
+        case .Profile: return "Profile"
+        }
+    }
+    
+    var tabBarItemImage: UIImage? { return nil } /// TODO: - Add Images
+    
+    var tabBarItemTag: Int {
+        switch self {
+        case .Meals:   return 0
+        case .AddMeal: return 1
+        case .Profile: return 2
+        }
+    }
+    
+}
+
+
+/// MARK: - UITextField Extension
+
+extension UITextField { /// TODO: - Move away from style sheet
     func clearText() {
         self.text = ""
     }

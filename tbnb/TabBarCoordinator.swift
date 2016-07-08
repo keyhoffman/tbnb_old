@@ -17,7 +17,7 @@ protocol TabBarCoordinatorDelegate: class {
 
 /// MARK: - TabBarCoordinator
 
-class TabBarCoordinator: Coordinator {
+class TabBarCoordinator: Coordinator, MealsCoordinatorDelegate, AddMealCoordinatorDelegate, ProfileCoordinatorDelegate {
     
     /// MARK: - TabBarCoordinatorDelegate Declaration
     
@@ -25,42 +25,56 @@ class TabBarCoordinator: Coordinator {
     
     /// MARK: - Root Property Declarations
     
-    let window: UIWindow
-    let rootViewController = UITabBarController()
+    private let window: UIWindow
+    private let rootViewController = UITabBarController()
     
     /// MARK: - NavigationController Declarations
     
-    let searchNavigationContoller  = UINavigationController()
-    let mealsNavigationContoller   = UINavigationController()
-    let profileNavigationContoller = UINavigationController()
+    private let addMealsNavigationContoller = TabBarNavigationController.AddMeal.navigationController
+    private let mealsNavigationContoller    = TabBarNavigationController.Meals.navigationController
+    private let profileNavigationContoller  = TabBarNavigationController.Profile.navigationController
     
     /// MARK: - Sub-Coordinator Declarations
     
-    let searchCoordinator:  SearchCoordinator
-    let mealsCoordinator:   MealsCoordinator
-    let profileCoordinator: ProfileCoordinator
+    private let addMealCoordinator: AddMealCoordinator
+    private let mealsCoordinator:   MealsCoordinator
+    private let profileCoordinator: ProfileCoordinator
     
     /// MARK: - TabBarCoordinator Initializer
     
     init(window: UIWindow) {
         self.window = window
         
-        let viewControllers = [searchNavigationContoller, mealsNavigationContoller, profileNavigationContoller]
+        let viewControllers = [addMealsNavigationContoller, mealsNavigationContoller, profileNavigationContoller]
         
-        self.rootViewController.setViewControllers(viewControllers, animated: false)
+        rootViewController.setViewControllers(viewControllers, animated: false)
         
-        self.searchCoordinator  = SearchCoordinator(presenter: searchNavigationContoller)
-        self.mealsCoordinator   = MealsCoordinator(presenter: mealsNavigationContoller)
-        self.profileCoordinator = ProfileCoordinator(presenter: profileNavigationContoller)
+        addMealCoordinator = AddMealCoordinator(navigationController: addMealsNavigationContoller)
+        mealsCoordinator   = MealsCoordinator(navigationController: mealsNavigationContoller)
+        profileCoordinator = ProfileCoordinator(navigationController: profileNavigationContoller)
+        
+        setNavigationControllerTabBarItems()
+        
+        mealsCoordinator.delegate   = self
+        addMealCoordinator.delegate = self
+        profileCoordinator.delegate = self
     }
     
-    /// /// MARK: - Coordinator Methods
+    /// MARK: - Coordinator Methods
     
     func start() {
         window.rootViewController = rootViewController
         window.makeKeyAndVisible()
-        searchCoordinator.start()
+        addMealCoordinator.start()
         mealsCoordinator.start()
         profileCoordinator.start()
+    }
+    
+    /// MARK: - Set NavigationController TabBarItems
+    
+    private func setNavigationControllerTabBarItems() {
+        addMealsNavigationContoller.tabBarItem = UITabBarItem(title: TabBarNavigationController.AddMeal.tabBarItemTitle, image: TabBarNavigationController.AddMeal.tabBarItemImage, tag: TabBarNavigationController.AddMeal.tabBarItemTag)
+        mealsNavigationContoller.tabBarItem    = UITabBarItem(title: TabBarNavigationController.Meals.tabBarItemTitle, image: TabBarNavigationController.Meals.tabBarItemImage, tag: TabBarNavigationController.Meals.tabBarItemTag)
+        profileNavigationContoller.tabBarItem  = UITabBarItem(title: TabBarNavigationController.Profile.tabBarItemTitle, image: TabBarNavigationController.Profile.tabBarItemImage, tag: TabBarNavigationController.Profile.tabBarItemTag)
     }
 }

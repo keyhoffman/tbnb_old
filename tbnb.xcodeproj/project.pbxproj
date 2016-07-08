@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		031031DF1D2F616F002F7111 /* ListProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031031DE1D2F616F002F7111 /* ListProtocol.swift */; };
+		031031E01D2F616F002F7111 /* ListProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031031DE1D2F616F002F7111 /* ListProtocol.swift */; };
+		031031E11D2F616F002F7111 /* ListProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031031DE1D2F616F002F7111 /* ListProtocol.swift */; };
 		034A3CB31D29991B002BDA08 /* StyleSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034A3CB21D29991B002BDA08 /* StyleSheet.swift */; };
 		034A3CB41D29991B002BDA08 /* StyleSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034A3CB21D29991B002BDA08 /* StyleSheet.swift */; };
 		034A3CB51D29991B002BDA08 /* StyleSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034A3CB21D29991B002BDA08 /* StyleSheet.swift */; };
@@ -16,9 +19,9 @@
 		034A3CBD1D299EA8002BDA08 /* ProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034A3CBC1D299EA8002BDA08 /* ProfileCoordinator.swift */; };
 		034A3CBE1D299EA8002BDA08 /* ProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034A3CBC1D299EA8002BDA08 /* ProfileCoordinator.swift */; };
 		034A3CBF1D299EA8002BDA08 /* ProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034A3CBC1D299EA8002BDA08 /* ProfileCoordinator.swift */; };
-		034A3CC11D299EBD002BDA08 /* SearchCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034A3CC01D299EBD002BDA08 /* SearchCoordinator.swift */; };
-		034A3CC21D299EBD002BDA08 /* SearchCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034A3CC01D299EBD002BDA08 /* SearchCoordinator.swift */; };
-		034A3CC31D299EBD002BDA08 /* SearchCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034A3CC01D299EBD002BDA08 /* SearchCoordinator.swift */; };
+		034A3CC11D299EBD002BDA08 /* AddMealCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034A3CC01D299EBD002BDA08 /* AddMealCoordinator.swift */; };
+		034A3CC21D299EBD002BDA08 /* AddMealCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034A3CC01D299EBD002BDA08 /* AddMealCoordinator.swift */; };
+		034A3CC31D299EBD002BDA08 /* AddMealCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034A3CC01D299EBD002BDA08 /* AddMealCoordinator.swift */; };
 		034A3CC51D299ED1002BDA08 /* MealsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034A3CC41D299ED1002BDA08 /* MealsCoordinator.swift */; };
 		034A3CC61D299ED1002BDA08 /* MealsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034A3CC41D299ED1002BDA08 /* MealsCoordinator.swift */; };
 		034A3CC71D299ED1002BDA08 /* MealsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034A3CC41D299ED1002BDA08 /* MealsCoordinator.swift */; };
@@ -78,10 +81,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		031031DE1D2F616F002F7111 /* ListProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListProtocol.swift; sourceTree = "<group>"; };
 		034A3CB21D29991B002BDA08 /* StyleSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleSheet.swift; sourceTree = "<group>"; };
 		034A3CB61D299AE4002BDA08 /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
 		034A3CBC1D299EA8002BDA08 /* ProfileCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileCoordinator.swift; sourceTree = "<group>"; };
-		034A3CC01D299EBD002BDA08 /* SearchCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCoordinator.swift; sourceTree = "<group>"; };
+		034A3CC01D299EBD002BDA08 /* AddMealCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddMealCoordinator.swift; sourceTree = "<group>"; };
 		034A3CC41D299ED1002BDA08 /* MealsCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealsCoordinator.swift; sourceTree = "<group>"; };
 		034A3CCF1D2C981E002BDA08 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
 		034A3CD31D2C985D002BDA08 /* AuthenticationCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationCoordinator.swift; sourceTree = "<group>"; };
@@ -188,7 +192,7 @@
 			children = (
 				034A3CCF1D2C981E002BDA08 /* TabBarCoordinator.swift */,
 				034A3CC41D299ED1002BDA08 /* MealsCoordinator.swift */,
-				034A3CC01D299EBD002BDA08 /* SearchCoordinator.swift */,
+				034A3CC01D299EBD002BDA08 /* AddMealCoordinator.swift */,
 				034A3CBC1D299EA8002BDA08 /* ProfileCoordinator.swift */,
 			);
 			name = TabBarCoordinator;
@@ -201,6 +205,7 @@
 				034A3CDE1D2DDD1C002BDA08 /* Meal.swift */,
 				034A3CE21D2DDD2A002BDA08 /* User.swift */,
 				034A3CF11D2EF0C6002BDA08 /* FirebaseTypes.swift */,
+				031031DE1D2F616F002F7111 /* ListProtocol.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -560,10 +565,11 @@
 				034A3CB31D29991B002BDA08 /* StyleSheet.swift in Sources */,
 				034A3CBD1D299EA8002BDA08 /* ProfileCoordinator.swift in Sources */,
 				034A3CDF1D2DDD1C002BDA08 /* Meal.swift in Sources */,
-				034A3CC11D299EBD002BDA08 /* SearchCoordinator.swift in Sources */,
+				034A3CC11D299EBD002BDA08 /* AddMealCoordinator.swift in Sources */,
 				034A3CEC1D2DDE72002BDA08 /* AuthenticationViewController.swift in Sources */,
 				034A3CD01D2C981E002BDA08 /* TabBarCoordinator.swift in Sources */,
 				034A3CD41D2C985D002BDA08 /* AuthenticationCoordinator.swift in Sources */,
+				031031DF1D2F616F002F7111 /* ListProtocol.swift in Sources */,
 				034A3CE81D2DDE5C002BDA08 /* OpeningViewController.swift in Sources */,
 				034A3CB71D299AE4002BDA08 /* ApplicationCoordinator.swift in Sources */,
 				034A3CC51D299ED1002BDA08 /* MealsCoordinator.swift in Sources */,
@@ -576,7 +582,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				034A3CBE1D299EA8002BDA08 /* ProfileCoordinator.swift in Sources */,
-				034A3CC21D299EBD002BDA08 /* SearchCoordinator.swift in Sources */,
+				034A3CC21D299EBD002BDA08 /* AddMealCoordinator.swift in Sources */,
 				034A3CF31D2EF0C6002BDA08 /* FirebaseTypes.swift in Sources */,
 				034A3CD11D2C981E002BDA08 /* TabBarCoordinator.swift in Sources */,
 				034A3CE91D2DDE5C002BDA08 /* OpeningViewController.swift in Sources */,
@@ -584,6 +590,7 @@
 				034A3CE01D2DDD1C002BDA08 /* Meal.swift in Sources */,
 				034A3CB41D29991B002BDA08 /* StyleSheet.swift in Sources */,
 				034A3CDB1D2DDC55002BDA08 /* Result.swift in Sources */,
+				031031E01D2F616F002F7111 /* ListProtocol.swift in Sources */,
 				034A3CE41D2DDD2A002BDA08 /* User.swift in Sources */,
 				034A3CED1D2DDE72002BDA08 /* AuthenticationViewController.swift in Sources */,
 				034A3CD51D2C985D002BDA08 /* AuthenticationCoordinator.swift in Sources */,
@@ -597,7 +604,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				034A3CBF1D299EA8002BDA08 /* ProfileCoordinator.swift in Sources */,
-				034A3CC31D299EBD002BDA08 /* SearchCoordinator.swift in Sources */,
+				034A3CC31D299EBD002BDA08 /* AddMealCoordinator.swift in Sources */,
 				034A3CF41D2EF0C6002BDA08 /* FirebaseTypes.swift in Sources */,
 				034A3CD21D2C981E002BDA08 /* TabBarCoordinator.swift in Sources */,
 				034A3CEA1D2DDE5C002BDA08 /* OpeningViewController.swift in Sources */,
@@ -605,6 +612,7 @@
 				034A3CE11D2DDD1C002BDA08 /* Meal.swift in Sources */,
 				034A3CB51D29991B002BDA08 /* StyleSheet.swift in Sources */,
 				034A3CDC1D2DDC55002BDA08 /* Result.swift in Sources */,
+				031031E11D2F616F002F7111 /* ListProtocol.swift in Sources */,
 				034A3CE51D2DDD2A002BDA08 /* User.swift in Sources */,
 				034A3CEE1D2DDE72002BDA08 /* AuthenticationViewController.swift in Sources */,
 				034A3CD61D2C985D002BDA08 /* AuthenticationCoordinator.swift in Sources */,
