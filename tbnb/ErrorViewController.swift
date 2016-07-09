@@ -17,13 +17,13 @@ protocol ErrorViewControllerDelegate: class {
 
 /// MARK: - ErrorViewController
 
-class ErrorViewController: UIViewController {
+class ErrorViewController: UIViewController, UIPopoverPresentationControllerDelegate {
     
     /// MARK: - ErrorViewControllerDelegate Declaration
     
     weak var delegate: ErrorViewControllerDelegate?
     
-    let errorMessage: String
+    let errorType: ErrorType
     
     /// MARK: UILabel Declarations
     
@@ -35,8 +35,8 @@ class ErrorViewController: UIViewController {
     
     /// MARK: - ErrorViewController Initializer
     
-    init(errorMessage: String) {
-        self.errorMessage = errorMessage
+    init(errorType: ErrorType) {
+        self.errorType = errorType
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -52,14 +52,26 @@ class ErrorViewController: UIViewController {
         title = ErrorViewControllerAttributes.View.title
         
         view.backgroundColor = ErrorViewControllerAttributes.View.color
+        
+        setErrorPopover()
         setErrorLabelProperties()
+        setErrorButtonProperties()
+    }
+    
+    /// MARK: - UIPopoverPresentationControllerDelegate Methods
+    
+    func setErrorPopover() {
+        guard let errorPopover  = self.popoverPresentationController else { print("Couldnt set errorPopover");return }
+        errorPopover.delegate   = self
+        errorPopover.sourceView = view
+        errorPopover.sourceRect = view.bounds
     }
     
     /// MARK: - Set View Properties
     
     private func setErrorLabelProperties() {
         view.addSubview(errorLabel)
-        errorLabel.text            = errorMessage
+        errorLabel.text            = errorType._domain
         errorLabel.backgroundColor = ErrorViewControllerAttributes.Label.color
         errorLabel.textColor       = ErrorViewControllerAttributes.Text.color
         

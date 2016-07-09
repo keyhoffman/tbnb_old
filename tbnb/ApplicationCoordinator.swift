@@ -18,7 +18,7 @@ protocol Coordinator {
 
 /// MARK: - ApplicationCoordinator
 
-final class ApplicationCoordinator: Coordinator, AuthenticationCoordinatorDelegate, TabBarCoordinatorDelegate {
+final class ApplicationCoordinator: Coordinator, AuthenticationCoordinatorDelegate, TabBarCoordinatorDelegate, ErrorCoordinatorDelegate {
     
     /// MARK: - UIWindow
     
@@ -28,6 +28,7 @@ final class ApplicationCoordinator: Coordinator, AuthenticationCoordinatorDelega
     
     private let authenticationCoordinator: AuthenticationCoordinator
     private let tabBarCoordinator:         TabBarCoordinator
+    private var errorCoordinator:          ErrorCoordinator?
     
     /// MARK: - ApplicationCoordinator Initializer
     
@@ -48,12 +49,6 @@ final class ApplicationCoordinator: Coordinator, AuthenticationCoordinatorDelega
         authenticationCoordinator.start()
     }
     
-    /// MARK: - ErrorSendingType Methods
-    
-    func anErrorHasOccurred(error: ErrorType, sender: Coordinator) {
-        <#code#>
-    }
-    
     /// MARK: - AuthenticationCoordinatorDelegate Methods
     
     func userHasBeenLoggedOut(sender: AuthenticationCoordinator) {
@@ -61,7 +56,7 @@ final class ApplicationCoordinator: Coordinator, AuthenticationCoordinatorDelega
     }
     
     func userHasBeenAuthenticated(authenticatedUser user: User, sender: AuthenticationCoordinator) {
-        print("-- authenticatedUserDump --")
+        print("-- authenticatedUser Dump --")
         dump(user)
         tabBarCoordinator.start()
     }
@@ -69,8 +64,25 @@ final class ApplicationCoordinator: Coordinator, AuthenticationCoordinatorDelega
     /// MARK: - TabBarCoordinatorDelegate Methods
     
     func userHasRequestedLogOut(requestingUser user: User, sender: TabBarCoordinator) {
-        print("-- requestingUserDump --")
+        print("-- requestingUser Dump --")
         dump(user)
+    }
+    
+    /// MARK: - ErrorSendingType Methods
+    
+    func anErrorHasOccurred(error: ErrorType, sender: Coordinator) {
+        errorCoordinator = ErrorCoordinator(window: window, errorType: error)
+        errorCoordinator?.delegate = self
+        errorCoordinator?.start()
+    }
+    
+    /// MARK: - ErrorCoordinatorDelegate Methods
+    
+    func userHasAcknowledgedError(sender: ErrorCoordinator) {
+        print("userHasAcknowledgedError")
+        print("-- ErrorCoordinatorDelegate Dump --")
+        dump(sender)
+        authenticationCoordinator.start()
     }
     
 }

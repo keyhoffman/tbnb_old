@@ -228,11 +228,19 @@
 			name = ErrorCoordinator;
 			sourceTree = "<group>";
 		};
+		0310322C1D31AF4E002F7111 /* ApplicationCoordinator */ = {
+			isa = PBXGroup;
+			children = (
+				034A3CB61D299AE4002BDA08 /* ApplicationCoordinator.swift */,
+			);
+			name = ApplicationCoordinator;
+			sourceTree = "<group>";
+		};
 		034A3CBA1D299AED002BDA08 /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
 				0310322A1D30C1A2002F7111 /* ErrorCoordinator */,
-				034A3CB61D299AE4002BDA08 /* ApplicationCoordinator.swift */,
+				0310322C1D31AF4E002F7111 /* ApplicationCoordinator */,
 				034A3CCD1D2C97DA002BDA08 /* AuthenticationCoordinator */,
 				034A3CCE1D2C97EC002BDA08 /* TabBarCoordinator */,
 			);

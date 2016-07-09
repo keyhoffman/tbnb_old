@@ -11,7 +11,7 @@ import UIKit
 
 /// MARK: - ProfileCoordinator Delegate
 
-protocol ProfileCoordinatorDelegate: class {
+protocol ProfileCoordinatorDelegate: class, ErrorSendingType {
     
 }
 

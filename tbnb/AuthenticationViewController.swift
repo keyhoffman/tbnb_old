@@ -20,13 +20,6 @@ protocol AuthenticationViewControllerDelegate: class {
     func login(sender: AuthenticationViewController)
 }
 
-/// MARK: - AuthenticationAction
-/// TODO: - Move elsewhere
-
-enum AuthenticationAction {
-    case Login, SignUp
-}
-
 /// MARK: - AuthenticationViewController
 
 final class AuthenticationViewController: UIViewController, UITextFieldDelegate {
@@ -60,9 +53,9 @@ final class AuthenticationViewController: UIViewController, UITextFieldDelegate 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setTitle()
         setTextFields()
         view.backgroundColor = BackgroundColor.Red.color
+        title = action.titleValue
     }
     
     /// MARK: - TextField Delegate Methods
@@ -145,10 +138,4 @@ final class AuthenticationViewController: UIViewController, UITextFieldDelegate 
         
     }
     
-    private func setTitle() {
-        switch action {
-        case .Login:  title = ViewControllerTitle.Login.title
-        case .SignUp: title = ViewControllerTitle.SignUp.title
-        }
-    }
 }

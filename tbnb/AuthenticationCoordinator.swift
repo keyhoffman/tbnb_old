@@ -31,6 +31,20 @@ extension Authenticator where Self: AuthenticationCoordinator {
     }
 }
 
+/// MARK: - AuthenticationAction
+
+enum AuthenticationAction {
+    case Login
+    case SignUp
+    
+    var titleValue: String {
+        switch self {
+        case .Login:  return ViewControllerTitle.Login.title
+        case .SignUp: return ViewControllerTitle.SignUp.title
+        }
+    }
+}
+
 /// MARK: - AuthenticationCoordinator
 
 final class AuthenticationCoordinator: Coordinator, Authenticator, OpeningViewControllerDelegate, AuthenticationViewControllerDelegate {
@@ -89,6 +103,7 @@ final class AuthenticationCoordinator: Coordinator, Authenticator, OpeningViewCo
         FIRAuth.auth()?.createUserWithEmail(email, password: password) { user, error in
             if let error = error {
                 print(error.localizedDescription)
+                self.delegate?.anErrorHasOccurred(error, sender: self)
                 return
             }
             guard let user = user else { return }
@@ -97,6 +112,7 @@ final class AuthenticationCoordinator: Coordinator, Authenticator, OpeningViewCo
             changeRequest.commitChangesWithCompletion { error in
                 if let error = error {
                     print(error.localizedDescription)
+                    self.delegate?.anErrorHasOccurred(error, sender: self)
                     return
                 }
                 let logggedInUser = User(key: user.uid, username: username, email: email)
@@ -116,6 +132,7 @@ final class AuthenticationCoordinator: Coordinator, Authenticator, OpeningViewCo
         FIRAuth.auth()?.signInWithEmail(email, password: password) { user, error in
             if let error = error {
                 print(error.localizedDescription)
+                self.delegate?.anErrorHasOccurred(error, sender: self)
                 return
             }
             guard let user = user, let email = user.email, let username = user.displayName else { return }

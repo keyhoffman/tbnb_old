@@ -145,6 +145,8 @@ enum ErrorViewControllerAttributes {
     }
     
     var labelWidthToViewWidthFactor: CGFloat { return 0.75 }
+    
+    var preferredContentSize: CGSize { return CGSize(width: 100, height: 100) }
 }
 
 

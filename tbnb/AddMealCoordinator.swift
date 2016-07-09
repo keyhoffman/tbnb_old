@@ -11,7 +11,7 @@ import UIKit
 
 /// MARK: - AddMealCoordinatorDelegate Protocol
 
-protocol AddMealCoordinatorDelegate: class {
+protocol AddMealCoordinatorDelegate: class, ErrorSendingType {
     
 }
 

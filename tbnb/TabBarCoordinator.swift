@@ -70,6 +70,12 @@ final class TabBarCoordinator: Coordinator, MealsCoordinatorDelegate, AddMealCoo
         profileCoordinator.start()
     }
     
+    /// MARK: - ErrorSendingType Methods
+    
+    func anErrorHasOccurred(error: ErrorType, sender: Coordinator) {
+        self.delegate?.anErrorHasOccurred(error, sender: self)
+    }
+    
     /// MARK: - Set NavigationController TabBarItems
     
     private func setNavigationControllerTabBarItems() {
