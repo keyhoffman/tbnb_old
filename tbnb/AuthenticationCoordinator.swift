@@ -12,14 +12,28 @@ import Firebase
 
 /// MARK: - AuthenticationCoordinatorDelegate Protocol
 
-protocol AuthenticationCoordinatorDelegate: class {
+protocol AuthenticationCoordinatorDelegate: class, ErrorSendingType {
     func userHasBeenAuthenticated(authenticatedUser user: User, sender: AuthenticationCoordinator)
     func userHasBeenLoggedOut(sender: AuthenticationCoordinator)
 }
 
+/// MARK: - Authenticator Protocol
+
+protocol Authenticator {
+    func checkCurrentUser() -> User?
+}
+
+extension Authenticator where Self: AuthenticationCoordinator {
+    func checkCurrentUser() -> User? {
+        let auth = FIRAuth.auth()
+        guard let key = auth?.currentUser?.uid, email = auth?.currentUser?.email, username = auth?.currentUser?.displayName  else { return nil }
+        return User(key: key, username: username, email: email)
+    }
+}
+
 /// MARK: - AuthenticationCoordinator
 
-class AuthenticationCoordinator: Coordinator, OpeningViewControllerDelegate, AuthenticationViewControllerDelegate {
+final class AuthenticationCoordinator: Coordinator, Authenticator, OpeningViewControllerDelegate, AuthenticationViewControllerDelegate {
     
     /// MARK: - AuthenticationCoordinatorDelegate Declaration
     
@@ -56,12 +70,16 @@ class AuthenticationCoordinator: Coordinator, OpeningViewControllerDelegate, Aut
         loginViewController.delegate   = self
     }
     
-    /// MARK: - Coordinator Methods
+    /// MARK: - Coordinator and Authenticator Methods
     
     func start() {
-        window.rootViewController = rootViewController
-        window.makeKeyAndVisible()
-        rootViewController.pushViewController(openingViewController, animated: false)
+        if let user = checkCurrentUser() { print("-- UserDump --"); dump(user); delegate?.userHasBeenAuthenticated(authenticatedUser: user, sender: self) }
+        else {
+            print("NO USER!")
+            window.rootViewController = rootViewController
+            window.makeKeyAndVisible()
+            rootViewController.pushViewController(openingViewController, animated: false)
+        }
     }
     
     /// MARK: - AuthenticationViewControllerDelegate Methods
@@ -82,8 +100,12 @@ class AuthenticationCoordinator: Coordinator, OpeningViewControllerDelegate, Aut
                     return
                 }
                 let logggedInUser = User(key: user.uid, username: username, email: email)
-                logggedInUser.sendToFB()
-                self.delegate?.userHasBeenAuthenticated(authenticatedUser: logggedInUser, sender: self)
+                logggedInUser.sendToFB { result in
+                    switch result {
+                    case .Failure(let error): self.delegate?.anErrorHasOccurred(error, sender: self)
+                    case .Success(let user):  self.delegate?.userHasBeenAuthenticated(authenticatedUser: user, sender: self)
+                    }
+                }
                 return
             }
         }

@@ -18,15 +18,15 @@ struct StyleSheet {
     static let DefaultSubtitleFontSize: CGFloat = 14
     
     struct MealCard {
-        static let HeadingFontSize: CGFloat      = StyleSheet.DefaultHeadingFontSize
-        static let PriceSubtitleSize: CGFloat    = 8.0
+        static let HeadingFontSize:      CGFloat = StyleSheet.DefaultHeadingFontSize
+        static let PriceSubtitleSize:    CGFloat = 8.0
         static let HostImageBorderWidth: CGFloat = 2.0
-        static let Height: CGFloat               = 320.0
+        static let Height:               CGFloat = 320.0
     }
     
-//    static func prepare(cell: MealTableViewCell) {
-//        /// configure cell here!!!!
-//    }
+    static func prepare(cell: MealTableViewCell) {
+        /// configure cell here!!!!
+    }
 }
 
 /// MARK: - BackgroundColor
@@ -129,7 +129,22 @@ enum TabBarNavigationController {
         case .Profile: return 2
         }
     }
+}
+
+enum ErrorViewControllerAttributes {
+    case View, Label, Text
     
+    var title: String { return "Error!" }
+    
+    var color: UIColor {
+        switch self {
+        case .View:  return BackgroundColor.LightGray.color
+        case .Label: return BackgroundColor.White.color
+        case .Text:  return BackgroundColor.Red.color
+        }
+    }
+    
+    var labelWidthToViewWidthFactor: CGFloat { return 0.75 }
 }
 
 
@@ -142,11 +157,11 @@ extension UITextField { /// TODO: - Move away from style sheet
     
     func defaultSettings() {
         self.adjustsFontSizeToFitWidth = true
-        self.autocapitalizationType = .None
-        self.autocorrectionType = .No
-        self.clearButtonMode = .Always
-        self.keyboardAppearance = .Dark
-        self.keyboardType = .Default
+        self.autocapitalizationType    = .None
+        self.autocorrectionType        = .No
+        self.clearButtonMode           = .Always
+        self.keyboardAppearance        = .Dark
+        self.keyboardType              = .Default
     }
 }
 

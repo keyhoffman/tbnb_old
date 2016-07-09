@@ -11,7 +11,7 @@ import Foundation
 /// MARK: - ResultType Protocol
 
 protocol ResultType {
-    associatedtype Value
+    associatedtype Value: FBSendable
     associatedtype Error: ErrorType
     
     init(value: Value)
@@ -23,7 +23,7 @@ protocol ResultType {
 
 /// MARK - Result
 
-enum Result<T, Error: ErrorType>: ResultType {
+enum Result<T: FBSendable, Error: ErrorType>: ResultType {
     typealias Value = T
     
     case Success(Value)
@@ -36,5 +36,46 @@ enum Result<T, Error: ErrorType>: ResultType {
     var error: ErrorType?    { return self.error }
     
 }
+
+/// MARK: - ProtocolBufferMessageType Protocol
+
+protocol ProtocolBufferMessageType {
+    init(dict: FBDictionary)
+}
+
+/// MARK: - Status
+
+final class Status: ProtocolBufferMessageType { /// TODO: Fix this
+    let success: Bool
+    let localizedDescription: String?
+    
+    init(dict: FBDictionary) {
+        self.success = false
+        self.localizedDescription = "corn"
+    }
+}
+
+/// MARK: - ProtocolBufferResponseMessageType Protocol
+
+protocol ProtocolBufferResponseMessageType {
+    var status: Status { get }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

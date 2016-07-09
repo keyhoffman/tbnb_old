@@ -17,7 +17,7 @@ protocol MealsCoordinatorDelegate: class {
 
 /// MARK: - MealsCoordinator
 
-class MealsCoordinator: Coordinator {
+final class MealsCoordinator: Coordinator {
     
     /// MARK: - MealsCoordinatorDelegate Declaration
     

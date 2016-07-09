@@ -11,13 +11,13 @@ import UIKit
 
 /// MARK: - TabBarCoordinatorDelegate Protocol
 
-protocol TabBarCoordinatorDelegate: class {
+protocol TabBarCoordinatorDelegate: class, ErrorSendingType {
     func userHasRequestedLogOut(requestingUser user: User, sender: TabBarCoordinator)
 }
 
 /// MARK: - TabBarCoordinator
 
-class TabBarCoordinator: Coordinator, MealsCoordinatorDelegate, AddMealCoordinatorDelegate, ProfileCoordinatorDelegate {
+final class TabBarCoordinator: Coordinator, MealsCoordinatorDelegate, AddMealCoordinatorDelegate, ProfileCoordinatorDelegate {
     
     /// MARK: - TabBarCoordinatorDelegate Declaration
     

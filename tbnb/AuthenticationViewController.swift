@@ -29,7 +29,7 @@ enum AuthenticationAction {
 
 /// MARK: - AuthenticationViewController
 
-class AuthenticationViewController: UIViewController, UITextFieldDelegate {
+final class AuthenticationViewController: UIViewController, UITextFieldDelegate {
 
     /// MARK: - AuthenticationViewControllerDelegate
     

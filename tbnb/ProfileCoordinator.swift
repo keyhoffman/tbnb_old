@@ -17,7 +17,7 @@ protocol ProfileCoordinatorDelegate: class {
 
 /// MARK: - ProfileCoordinator
 
-class ProfileCoordinator: Coordinator {
+final class ProfileCoordinator: Coordinator {
     
     /// MARK: - SearchCoordinatorDelegate Declaration
     

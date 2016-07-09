@@ -18,7 +18,7 @@ protocol Coordinator {
 
 /// MARK: - ApplicationCoordinator
 
-class ApplicationCoordinator: Coordinator, AuthenticationCoordinatorDelegate, TabBarCoordinatorDelegate {
+final class ApplicationCoordinator: Coordinator, AuthenticationCoordinatorDelegate, TabBarCoordinatorDelegate {
     
     /// MARK: - UIWindow
     
@@ -44,9 +44,14 @@ class ApplicationCoordinator: Coordinator, AuthenticationCoordinatorDelegate, Ta
     /// MARK: - Coordinator Methods
     
     func start() {
-        try! FIRAuth.auth()?.signOut()
-        if let _ = checkCurrentUser() { tabBarCoordinator.start() }
-        else                          { authenticationCoordinator.start() }
+        try! FIRAuth.auth()?.signOut() /// TODO: - delete this
+        authenticationCoordinator.start()
+    }
+    
+    /// MARK: - ErrorSendingType Methods
+    
+    func anErrorHasOccurred(error: ErrorType, sender: Coordinator) {
+        <#code#>
     }
     
     /// MARK: - AuthenticationCoordinatorDelegate Methods
@@ -70,7 +75,8 @@ class ApplicationCoordinator: Coordinator, AuthenticationCoordinatorDelegate, Ta
     
 }
 
-func checkCurrentUser() -> FIRUser? { return FIRAuth.auth()?.currentUser }
+
+
 
 
 

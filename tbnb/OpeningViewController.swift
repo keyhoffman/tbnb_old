@@ -18,7 +18,7 @@ protocol OpeningViewControllerDelegate: class {
 
 /// MARK: - OpeningViewController
 
-class OpeningViewController: UIViewController {
+final class OpeningViewController: UIViewController {
     
     /// MARK: - OpeningViewControllerDelegate Declaration
     
@@ -33,19 +33,9 @@ class OpeningViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setNavigationItems()
         title = ViewControllerTitle.Opening.title
         view.backgroundColor = BackgroundColor.LightGray.color
-        
-        navigateToLoginButton.target = self
-        navigateToLoginButton.action = #selector(OpeningViewController.navigateToLoginViewController(_:))
-        navigateToLoginButton.title  = ButtonTitle.Login.title
-        
-        navigateToSignUpButton.target = self
-        navigateToSignUpButton.action = #selector(OpeningViewController.navigateToSignUpViewController(_:))
-        navigateToSignUpButton.title  = ButtonTitle.SignUp.title
-        navigationItem.rightBarButtonItem = navigateToLoginButton
-        navigationItem.leftBarButtonItem  = navigateToSignUpButton
     }
     
     /// MARK: - Navigation Action Methods
@@ -58,4 +48,63 @@ class OpeningViewController: UIViewController {
         delegate?.navigateToSignUpButtonPressed(self)
     }
     
+    /// MARK: - Set View Properties
+    
+    private func setNavigationItems() {
+        navigateToLoginButton.target = self
+        navigateToLoginButton.action = #selector(OpeningViewController.navigateToLoginViewController(_:))
+        navigateToLoginButton.title  = ButtonTitle.Login.title
+        
+        navigateToSignUpButton.target = self
+        navigateToSignUpButton.action = #selector(OpeningViewController.navigateToSignUpViewController(_:))
+        navigateToSignUpButton.title  = ButtonTitle.SignUp.title
+        navigationItem.rightBarButtonItem = navigateToLoginButton
+        navigationItem.leftBarButtonItem  = navigateToSignUpButton
+    }
+    
 }
+
+
+
+//loadImage { result in
+//    switch result {
+//    case .Failure(let error): print(error.localizedDescription)
+//    case .Success(let lasagnaImage):
+//        self.spinner.stopAnimating()
+//        self.spinner.hidesWhenStopped = true
+//        let imageView = UIImageView(image: lasagnaImage)
+//        self.view.addSubview(imageView)
+//        imageView.snp_makeConstraints { make in
+//            make.center.equalTo(self.view.snp_center)
+//            make.height.width.equalTo(StyleSheet.MealCard.Height)
+//        }
+//    }
+//}
+
+//    func loadImage(withBlock: Result<UIImage, NSError> -> Void) {
+//
+//        let maxSize: Int64 = 1 * 1024 * 1024
+//
+//        let storage = FIRStorage.storage()
+//        let storageRef = storage.referenceForURL("gs://project-131193767834450985.appspot.com")
+//
+//        let lasagnaRef = storageRef.child("Meal1_Lasagna/Lasagna1.jpg")
+//
+//        lasagnaRef.dataWithMaxSize(maxSize) { data, error in
+//            guard let data = data else { if let error = error { withBlock(Result(error: error)) }
+//                print("EEEEEERRRPR")
+//                return
+//            }
+//
+//            if let lasagnaImage = UIImage(data: data) {
+//                print("-- lasagnaImageDump --")
+//                dump(lasagnaImage)
+//                withBlock(Result(value: lasagnaImage))
+//                print("Nah brah")
+//                return
+//            }
+//            return
+//        }
+//
+//    }
+//
