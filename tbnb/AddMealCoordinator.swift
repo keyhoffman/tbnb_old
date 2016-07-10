@@ -9,35 +9,35 @@
 import Foundation
 import UIKit
 
-/// MARK: - AddMealCoordinatorDelegate Protocol
+// MARK: - AddMealCoordinatorDelegate Protocol
 
 protocol AddMealCoordinatorDelegate: class, ErrorSendingType {
     
 }
 
-/// MARK: - SearchCoordinator
+// MARK: - SearchCoordinator
 
-final class AddMealCoordinator: Coordinator {
+final class AddMealCoordinator: SubCoordinator {
     
-    /// MARK: - AddMealCoordinatorDelegate Declaration
+    // MARK: - AddMealCoordinatorDelegate Declaration
     
-    weak var delegate: AddMealCoordinatorDelegate?
+    weak var coordinatorDelegate: AddMealCoordinatorDelegate?
     
-    /// MARK: - NavigationController Declaration
+    // MARK: - NavigationController Declaration
     
     private let navigationController: UINavigationController
     
-    /// MARK: - ViewContoller Declaration
+    // MARK: - ViewContoller Declaration
     
     private let addMealViewController = UIViewController()
 
-    /// MARK: - SearchCoordinator Initializer
+    // MARK: - SearchCoordinator Initializer
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
     
-    /// MARK: - Coordinator Methods
+    // MARK: - Coordinator Methods
     
     func start() {
         navigationController.pushViewController(addMealViewController, animated: false)

@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-/// MARK: - RemoteContentProviding Protocol
+// MARK: - RemoteContentProviding Protocol
 
 //protocol RemoteContentProviding {
 //    associatedtype Object: FirebaseSendable

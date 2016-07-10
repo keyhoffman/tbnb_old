@@ -9,35 +9,35 @@
 import Foundation
 import UIKit
 
-/// MARK: - ProfileCoordinator Delegate
+// MARK: - ProfileCoordinator Delegate
 
 protocol ProfileCoordinatorDelegate: class, ErrorSendingType {
     
 }
 
-/// MARK: - ProfileCoordinator
+// MARK: - ProfileCoordinator
 
-final class ProfileCoordinator: Coordinator {
+final class ProfileCoordinator: SubCoordinator {
     
-    /// MARK: - SearchCoordinatorDelegate Declaration
+    // MARK: - SearchCoordinatorDelegate Declaration
     
-    weak var delegate: ProfileCoordinatorDelegate?
+    weak var coordinatorDelegate: ProfileCoordinatorDelegate?
     
-    /// MARK: - NavigationController Declaration
+    // MARK: - NavigationController Declaration
     
     private let navigationController: UINavigationController
     
-    /// MARK: - ViewContoller Declaration
+    // MARK: - ViewContoller Declaration
     
     private let profileTableViewController = UITableViewController()
     
-    /// MARK: - SearchCoordinator Initializer
+    // MARK: - SearchCoordinator Initializer
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
     
-    /// MARK: - Coordinator Methods
+    // MARK: - Coordinator Methods
     
     func start() {
         navigationController.pushViewController(profileTableViewController, animated: false)

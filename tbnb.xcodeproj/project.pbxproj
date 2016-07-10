@@ -31,6 +31,12 @@
 		031032271D30C197002F7111 /* ErrorCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031032261D30C197002F7111 /* ErrorCoordinator.swift */; };
 		031032281D30C197002F7111 /* ErrorCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031032261D30C197002F7111 /* ErrorCoordinator.swift */; };
 		031032291D30C197002F7111 /* ErrorCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031032261D30C197002F7111 /* ErrorCoordinator.swift */; };
+		0310322E1D3212CD002F7111 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0310322D1D3212CD002F7111 /* Result.swift */; };
+		0310322F1D3212CD002F7111 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0310322D1D3212CD002F7111 /* Result.swift */; };
+		031032301D3212CD002F7111 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0310322D1D3212CD002F7111 /* Result.swift */; };
+		031032321D321777002F7111 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031032311D321777002F7111 /* Coordinator.swift */; };
+		031032331D321777002F7111 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031032311D321777002F7111 /* Coordinator.swift */; };
+		031032341D321777002F7111 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031032311D321777002F7111 /* Coordinator.swift */; };
 		034A3CB31D29991B002BDA08 /* StyleSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034A3CB21D29991B002BDA08 /* StyleSheet.swift */; };
 		034A3CB41D29991B002BDA08 /* StyleSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034A3CB21D29991B002BDA08 /* StyleSheet.swift */; };
 		034A3CB51D29991B002BDA08 /* StyleSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034A3CB21D29991B002BDA08 /* StyleSheet.swift */; };
@@ -52,9 +58,6 @@
 		034A3CD41D2C985D002BDA08 /* AuthenticationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034A3CD31D2C985D002BDA08 /* AuthenticationCoordinator.swift */; };
 		034A3CD51D2C985D002BDA08 /* AuthenticationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034A3CD31D2C985D002BDA08 /* AuthenticationCoordinator.swift */; };
 		034A3CD61D2C985D002BDA08 /* AuthenticationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034A3CD31D2C985D002BDA08 /* AuthenticationCoordinator.swift */; };
-		034A3CDA1D2DDC55002BDA08 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034A3CD91D2DDC55002BDA08 /* Result.swift */; };
-		034A3CDB1D2DDC55002BDA08 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034A3CD91D2DDC55002BDA08 /* Result.swift */; };
-		034A3CDC1D2DDC55002BDA08 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034A3CD91D2DDC55002BDA08 /* Result.swift */; };
 		034A3CDF1D2DDD1C002BDA08 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034A3CDE1D2DDD1C002BDA08 /* Meal.swift */; };
 		034A3CE01D2DDD1C002BDA08 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034A3CDE1D2DDD1C002BDA08 /* Meal.swift */; };
 		034A3CE11D2DDD1C002BDA08 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034A3CDE1D2DDD1C002BDA08 /* Meal.swift */; };
@@ -110,6 +113,8 @@
 		0310321D1D308BCC002F7111 /* FirebaseObservable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseObservable.swift; sourceTree = "<group>"; };
 		031032211D30BC90002F7111 /* ErrorTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorTypes.swift; sourceTree = "<group>"; };
 		031032261D30C197002F7111 /* ErrorCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorCoordinator.swift; sourceTree = "<group>"; };
+		0310322D1D3212CD002F7111 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		031032311D321777002F7111 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		034A3CB21D29991B002BDA08 /* StyleSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleSheet.swift; sourceTree = "<group>"; };
 		034A3CB61D299AE4002BDA08 /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
 		034A3CBC1D299EA8002BDA08 /* ProfileCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileCoordinator.swift; sourceTree = "<group>"; };
@@ -117,7 +122,6 @@
 		034A3CC41D299ED1002BDA08 /* MealsCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealsCoordinator.swift; sourceTree = "<group>"; };
 		034A3CCF1D2C981E002BDA08 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
 		034A3CD31D2C985D002BDA08 /* AuthenticationCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationCoordinator.swift; sourceTree = "<group>"; };
-		034A3CD91D2DDC55002BDA08 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		034A3CDE1D2DDD1C002BDA08 /* Meal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
 		034A3CE21D2DDD2A002BDA08 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		034A3CE71D2DDE5C002BDA08 /* OpeningViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpeningViewController.swift; sourceTree = "<group>"; };
@@ -178,6 +182,7 @@
 		031031EE1D300461002F7111 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				031032311D321777002F7111 /* Coordinator.swift */,
 				031032011D3005BB002F7111 /* VCTypes */,
 				031031EF1D300472002F7111 /* FirebaseTypes */,
 			);
@@ -290,10 +295,10 @@
 		034A3CDD1D2DDD0F002BDA08 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				034A3CD91D2DDC55002BDA08 /* Result.swift */,
 				031032191D308A0B002F7111 /* Resource.swift */,
 				034A3CDE1D2DDD1C002BDA08 /* Meal.swift */,
 				034A3CE21D2DDD2A002BDA08 /* User.swift */,
+				0310322D1D3212CD002F7111 /* Result.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -657,11 +662,13 @@
 				034A3CB31D29991B002BDA08 /* StyleSheet.swift in Sources */,
 				034A3CBD1D299EA8002BDA08 /* ProfileCoordinator.swift in Sources */,
 				034A3CDF1D2DDD1C002BDA08 /* Meal.swift in Sources */,
+				031032321D321777002F7111 /* Coordinator.swift in Sources */,
 				034A3CC11D299EBD002BDA08 /* AddMealCoordinator.swift in Sources */,
 				0310321A1D308A0B002F7111 /* Resource.swift in Sources */,
 				031032031D3005E4002F7111 /* FirebaseSendable.swift in Sources */,
 				034A3CEC1D2DDE72002BDA08 /* AuthenticationViewController.swift in Sources */,
 				031032221D30BC90002F7111 /* ErrorTypes.swift in Sources */,
+				0310322E1D3212CD002F7111 /* Result.swift in Sources */,
 				031031E31D2F8153002F7111 /* MealTableViewCell.swift in Sources */,
 				034A3CD01D2C981E002BDA08 /* TabBarCoordinator.swift in Sources */,
 				0310321E1D308BCC002F7111 /* FirebaseObservable.swift in Sources */,
@@ -671,7 +678,6 @@
 				034A3CB71D299AE4002BDA08 /* ApplicationCoordinator.swift in Sources */,
 				034A3CC51D299ED1002BDA08 /* MealsCoordinator.swift in Sources */,
 				031031FE1D30058B002F7111 /* RemoteContentProviding.swift in Sources */,
-				034A3CDA1D2DDC55002BDA08 /* Result.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -689,13 +695,14 @@
 				035B20FD1D29933200439502 /* tbnbTests.swift in Sources */,
 				034A3CE01D2DDD1C002BDA08 /* Meal.swift in Sources */,
 				034A3CB41D29991B002BDA08 /* StyleSheet.swift in Sources */,
-				034A3CDB1D2DDC55002BDA08 /* Result.swift in Sources */,
+				0310322F1D3212CD002F7111 /* Result.swift in Sources */,
 				031032041D3005E4002F7111 /* FirebaseSendable.swift in Sources */,
 				031032171D306AE7002F7111 /* ErrorViewController.swift in Sources */,
 				031032231D30BC90002F7111 /* ErrorTypes.swift in Sources */,
 				034A3CE41D2DDD2A002BDA08 /* User.swift in Sources */,
 				0310321B1D308A0B002F7111 /* Resource.swift in Sources */,
 				031031FF1D30058B002F7111 /* RemoteContentProviding.swift in Sources */,
+				031032331D321777002F7111 /* Coordinator.swift in Sources */,
 				031032281D30C197002F7111 /* ErrorCoordinator.swift in Sources */,
 				034A3CED1D2DDE72002BDA08 /* AuthenticationViewController.swift in Sources */,
 				034A3CD51D2C985D002BDA08 /* AuthenticationCoordinator.swift in Sources */,
@@ -718,13 +725,14 @@
 				035B21081D29933200439502 /* tbnbUITests.swift in Sources */,
 				034A3CE11D2DDD1C002BDA08 /* Meal.swift in Sources */,
 				034A3CB51D29991B002BDA08 /* StyleSheet.swift in Sources */,
-				034A3CDC1D2DDC55002BDA08 /* Result.swift in Sources */,
+				031032301D3212CD002F7111 /* Result.swift in Sources */,
 				031032051D3005E4002F7111 /* FirebaseSendable.swift in Sources */,
 				031032181D306AE7002F7111 /* ErrorViewController.swift in Sources */,
 				031032241D30BC90002F7111 /* ErrorTypes.swift in Sources */,
 				034A3CE51D2DDD2A002BDA08 /* User.swift in Sources */,
 				0310321C1D308A0B002F7111 /* Resource.swift in Sources */,
 				031032001D30058B002F7111 /* RemoteContentProviding.swift in Sources */,
+				031032341D321777002F7111 /* Coordinator.swift in Sources */,
 				031032291D30C197002F7111 /* ErrorCoordinator.swift in Sources */,
 				034A3CEE1D2DDE72002BDA08 /* AuthenticationViewController.swift in Sources */,
 				034A3CD61D2C985D002BDA08 /* AuthenticationCoordinator.swift in Sources */,

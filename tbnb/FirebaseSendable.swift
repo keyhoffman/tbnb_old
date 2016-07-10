@@ -8,15 +8,29 @@
 
 import Foundation
 
-/// MARK: - FirebaseSendable Protocol
+// MARK: - FirebaseSendable Protocol
 
 protocol FBSendable: FBType, Equatable {
-    var key:                String   { get }
-    static var NeedsAutoID: Bool     { get }
-    static var FBSubKeys:   [String] { get }
+    var key: String { get }
+    
+    static var NeedsAutoID: Bool           { get }
+    static var FBSubKeys:   [String]       { get }
+    static var _Resource:   Resource<Self> { get }
+    
+    static func CreateNew(FBDict: FBDictionary?) -> Result<Self, FBObservingError<Self>>
 }
 
-/// MARK: - FirebaseSendable Protocol Extension
+// MARK: - FirebaseSendable Protocol Static Extension
+
+extension FBSendable {
+    static var _Resource: Resource<Self> { return Resource(parse: Self.CreateNew) }
+    
+//    static func CreateNew(FBDict: FBDictionary?) -> Result<Self, FBObservingError<Self>> {
+//        return Result(value: Self) // TODO: - This is not working because Result wants an instance as opposed to a static type
+//    }
+}
+
+// MARK: - FirebaseSendable Protocol General Extension
 
 extension FBSendable {
     func sendToFB(withResult: Result<Self, FBSendingError<Self>> -> Void) {
@@ -28,13 +42,12 @@ extension FBSendable {
         dump(FBDict)
         var path: String
         if Self.NeedsAutoID {
-            let autoKey = RootRef.childByAutoId().key
-            path = Self.Path + autoKey
+            path = Self.Path + RootRef.childByAutoId().key
         } else {
             path = Self.Path + key
         }
         print("path = \(path)")
-        RootRef.child(path).setValue(FBDict) { error, dataRef in
+        RootRef.child(path).setValue(FBDict) { error, _ in
             if let error = error {
                 withResult(Result(error: FBSendingError(FBError: error)))
                 return
@@ -55,9 +68,9 @@ extension FBSendable {
     }
 }
 
-/// MARK: - Dictionary Extension
+// MARK: - Dictionary Extension
 
-extension Dictionary { /// TODO: - Move elsewhere
+extension Dictionary { // TODO: - Move elsewhere
     init(_ pairs: [Element]) {
         self.init()
         for (k, v) in pairs {

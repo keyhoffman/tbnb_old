@@ -9,27 +9,27 @@
 import UIKit
 import Foundation
 
-/// MARK: - OpeningViewControllerDelegate Protocol
+// MARK: - OpeningViewControllerDelegate Protocol
 
 protocol OpeningViewControllerDelegate: class {    
     func navigateToLoginButtonPressed(sender: OpeningViewController)
     func navigateToSignUpButtonPressed(sender: OpeningViewController)
 }
 
-/// MARK: - OpeningViewController
+// MARK: - OpeningViewController
 
 final class OpeningViewController: UIViewController {
     
-    /// MARK: - OpeningViewControllerDelegate Declaration
+    // MARK: - OpeningViewControllerDelegate Declaration
     
     weak var delegate: OpeningViewControllerDelegate?
     
-    /// MARK: - UIBarButtonItem Declarations
+    // MARK: - UIBarButtonItem Declarations
     
     private let navigateToLoginButton  =  UIBarButtonItem()
     private let navigateToSignUpButton = UIBarButtonItem()
     
-    /// MARK: - OpeningViewController Lifecycle Methods
+    // MARK: - OpeningViewController Lifecycle Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +38,7 @@ final class OpeningViewController: UIViewController {
         view.backgroundColor = BackgroundColor.LightGray.color
     }
     
-    /// MARK: - Navigation Action Methods
+    // MARK: - Navigation Action Methods
     
     func navigateToLoginViewController(sender: UIBarButtonItem) {
         delegate?.navigateToLoginButtonPressed(self)
@@ -48,7 +48,7 @@ final class OpeningViewController: UIViewController {
         delegate?.navigateToSignUpButtonPressed(self)
     }
     
-    /// MARK: - Set View Properties
+    // MARK: - Set View Properties
     
     private func setNavigationItems() {
         navigateToLoginButton.target = self

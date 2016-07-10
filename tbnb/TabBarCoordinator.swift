@@ -9,38 +9,38 @@
 import Foundation
 import UIKit
 
-/// MARK: - TabBarCoordinatorDelegate Protocol
+// MARK: - TabBarCoordinatorDelegate Protocol
 
 protocol TabBarCoordinatorDelegate: class, ErrorSendingType {
     func userHasRequestedLogOut(requestingUser user: User, sender: TabBarCoordinator)
 }
 
-/// MARK: - TabBarCoordinator
+// MARK: - TabBarCoordinator
 
-final class TabBarCoordinator: Coordinator, MealsCoordinatorDelegate, AddMealCoordinatorDelegate, ProfileCoordinatorDelegate {
+final class TabBarCoordinator: SubCoordinator, MealsCoordinatorDelegate, AddMealCoordinatorDelegate, ProfileCoordinatorDelegate {
     
-    /// MARK: - TabBarCoordinatorDelegate Declaration
+    // MARK: - TabBarCoordinatorDelegate Declaration
     
-    weak var delegate: TabBarCoordinatorDelegate?
+    weak var coordinatorDelegate: TabBarCoordinatorDelegate?
     
-    /// MARK: - Root Property Declarations
+    // MARK: - Root Property Declarations
     
     private let window: UIWindow
     private let rootViewController = UITabBarController()
     
-    /// MARK: - NavigationController Declarations
+    // MARK: - NavigationController Declarations
     
     private let addMealsNavigationContoller = TabBarNavigationController.AddMeal.navigationController
     private let mealsNavigationContoller    = TabBarNavigationController.Meals.navigationController
     private let profileNavigationContoller  = TabBarNavigationController.Profile.navigationController
     
-    /// MARK: - Sub-Coordinator Declarations
+    // MARK: - Sub-Coordinator Declarations
     
     private let addMealCoordinator: AddMealCoordinator
     private let mealsCoordinator:   MealsCoordinator
     private let profileCoordinator: ProfileCoordinator
     
-    /// MARK: - TabBarCoordinator Initializer
+    // MARK: - TabBarCoordinator Initializer
     
     init(window: UIWindow) {
         self.window = window
@@ -55,12 +55,12 @@ final class TabBarCoordinator: Coordinator, MealsCoordinatorDelegate, AddMealCoo
         
         setNavigationControllerTabBarItems()
         
-        mealsCoordinator.delegate   = self
-        addMealCoordinator.delegate = self
-        profileCoordinator.delegate = self
+        mealsCoordinator.coordinatorDelegate   = self
+        addMealCoordinator.coordinatorDelegate = self
+        profileCoordinator.coordinatorDelegate = self
     }
     
-    /// MARK: - Coordinator Methods
+    // MARK: - Coordinator Methods
     
     func start() {
         window.rootViewController = rootViewController
@@ -70,13 +70,13 @@ final class TabBarCoordinator: Coordinator, MealsCoordinatorDelegate, AddMealCoo
         profileCoordinator.start()
     }
     
-    /// MARK: - ErrorSendingType Methods
+    // MARK: - ErrorSendingType Methods
     
     func anErrorHasOccurred(error: ErrorType, sender: Coordinator) {
-        self.delegate?.anErrorHasOccurred(error, sender: self)
+        self.coordinatorDelegate?.anErrorHasOccurred(error, sender: self)
     }
     
-    /// MARK: - Set NavigationController TabBarItems
+    // MARK: - Set NavigationController TabBarItems
     
     private func setNavigationControllerTabBarItems() {
         addMealsNavigationContoller.tabBarItem = UITabBarItem(title: TabBarNavigationController.AddMeal.tabBarItemTitle, image: TabBarNavigationController.AddMeal.tabBarItemImage, tag: TabBarNavigationController.AddMeal.tabBarItemTag)

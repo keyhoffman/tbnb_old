@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-/// MARK: - StyleSheet
+// MARK: - StyleSheet
 
 struct StyleSheet {
     private init() {}
@@ -25,11 +25,11 @@ struct StyleSheet {
     }
     
     static func prepare(cell: MealTableViewCell) {
-        /// configure cell here!!!!
+        // configure cell here!!!!
     }
 }
 
-/// MARK: - BackgroundColor
+// MARK: - BackgroundColor
 
 enum BackgroundColor {
     case White, Cyan, LightGray, Blue, Red
@@ -45,7 +45,7 @@ enum BackgroundColor {
     }
 }
 
-/// MARK: - ViewControllerTitle
+// MARK: - ViewControllerTitle
 
 enum ViewControllerTitle {
     case Opening, Login, SignUp
@@ -59,7 +59,7 @@ enum ViewControllerTitle {
     }
 }
 
-/// MARK: - ButtonTitle
+// MARK: - ButtonTitle
 
 enum ButtonTitle {
     case Login, SignUp
@@ -72,7 +72,7 @@ enum ButtonTitle {
     }
 }
 
-/// MARK: - AuthTextField
+// MARK: - AuthTextField
 
 enum AuthTextField {
     case Email, Password, Username
@@ -105,7 +105,7 @@ enum AuthTextField {
     }
 }
 
-/// MARK: - TabBarNavigationController
+// MARK: - TabBarNavigationController
 
 enum TabBarNavigationController {
     case Meals, AddMeal, Profile
@@ -120,7 +120,7 @@ enum TabBarNavigationController {
         }
     }
     
-    var tabBarItemImage: UIImage? { return nil } /// TODO: - Add Images
+    var tabBarItemImage: UIImage? { return nil } // TODO: - Add Images
     
     var tabBarItemTag: Int {
         switch self {
@@ -131,7 +131,9 @@ enum TabBarNavigationController {
     }
 }
 
-enum ErrorViewControllerAttributes {
+// MARK: - ErrorViewControllerAttribute
+
+enum ErrorViewControllerAttribute {
     case View, Label, Text
     
     var title: String { return "Error!" }
@@ -149,10 +151,46 @@ enum ErrorViewControllerAttributes {
     var preferredContentSize: CGSize { return CGSize(width: 100, height: 100) }
 }
 
+// MARK: - ErrorMessage
 
-/// MARK: - UITextField Extension
+enum ErrorMessage<T: FBSendable> {
+    case FBSendingError, AuthError, FBObservingError
+    
+    init(authenticationAction action: AuthenticationAction) {
+        self = .AuthError
+        self.action = action
+    }
+    
+    init(sendingType: T) {
+        self = .FBSendingError
+        self.sendingType = sendingType
+    }
+    
+    init() { self = .FBObservingError }
+    
+    var textValue: String {
+        switch self {
+        case .AuthError:        return "Invalid text input -- Please try to \(action.titleValue.lowercaseString) again"
+        case .FBSendingError:   return "Could not convert \(sendingType) to FBDictionary"
+        case .FBObservingError: return "Could not convert snapshot to FBDictionary"
+        }
+    }
+    
+    var sendingType: T {
+        get { return self.sendingType }
+        set {}
+    }
+    
+    var action: AuthenticationAction {
+        get { return self.action }
+        set {}
+    }
+}
 
-extension UITextField { /// TODO: - Move away from style sheet
+
+// MARK: - UITextField Extension
+
+extension UITextField { // TODO: - Move away from style sheet
     func clearText() {
         self.text = ""
     }

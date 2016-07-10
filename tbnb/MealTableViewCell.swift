@@ -8,7 +8,7 @@
 
 import UIKit
 
-/// MARK: - MealTableViewCell
+// MARK: - MealTableViewCell
 
 class MealTableViewCell: UITableViewCell {
 
@@ -16,9 +16,9 @@ class MealTableViewCell: UITableViewCell {
         let name:           String
         let pricePerPerson: Double
         let feeds:          Int
-        let chef:           User
-        let image:          UIImage
-        let datePosted:     NSDate
+//        let chef:           User
+//        let image:          UIImage
+//        let datePosted:     NSDate
     }
     
     var viewData: ViewData? {
@@ -35,15 +35,15 @@ class MealTableViewCell: UITableViewCell {
     }
 }
 
-/// MARK: - MealTableViewCell Extension
+// MARK: - MealTableViewCell Extension
 
 extension MealTableViewCell.ViewData {
     init(meal: Meal) {
         self.name           = meal.name
         self.pricePerPerson = meal.pricePerPerson
         self.feeds          = meal.feeds
-        self.chef           = meal.chef
-        self.image          = meal.image! // fix this
-        self.datePosted     = meal.datePosted
+//        self.chef           = meal.chef
+//        self.image          = meal.image! // fix this
+//        self.datePosted     = meal.datePosted
     }
 }

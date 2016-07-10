@@ -9,8 +9,10 @@
 import Foundation
 import Firebase
 
+// MARK: - Resource
+
 struct Resource<A: FBSendable>: FBObservable {
-    let parse: FBDictionary? -> Result<A, FBObservingError>
+    let parse: FBDictionary? -> Result<A, FBObservingError<A>>
     static var Path: String { return A.Path + "/" }
 }
 

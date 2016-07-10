@@ -9,7 +9,7 @@
 import UIKit
 import SnapKit
 
-/// MARK: - AuthenticationViewControllerDelegate Protocol
+// MARK: - AuthenticationViewControllerDelegate Protocol
 
 protocol AuthenticationViewControllerDelegate: class {
     var enteredEmail:    String? { get set }
@@ -20,28 +20,28 @@ protocol AuthenticationViewControllerDelegate: class {
     func login(sender: AuthenticationViewController)
 }
 
-/// MARK: - AuthenticationViewController
+// MARK: - AuthenticationViewController
 
 final class AuthenticationViewController: UIViewController, UITextFieldDelegate {
 
-    /// MARK: - AuthenticationViewControllerDelegate
+    // MARK: - AuthenticationViewControllerDelegate
     
     weak var delegate: AuthenticationViewControllerDelegate?
     
-    /// MARK: - TextField Declarations
+    // MARK: - TextField Declarations
     
     private let emailTextField    = AuthTextField.Email.textField
     private let passwordTextField = AuthTextField.Password.textField
     private let usernameTextField = AuthTextField.Username.textField
     
-    /// MARK: - AuthenticationAction
+    // MARK: - AuthenticationAction
     
-    private let action: AuthenticationAction
+    private let authenticationAction: AuthenticationAction
     
-    /// MARK: - AuthenticationViewController Initializer
+    // MARK: - AuthenticationViewController Initializer
     
     init(authenticationAction action: AuthenticationAction) {
-        self.action = action
+        self.authenticationAction = action
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -49,16 +49,16 @@ final class AuthenticationViewController: UIViewController, UITextFieldDelegate 
         fatalError("init(coder:) has not been implemented")
     }
     
-    /// MARK: - ViewController Lifecycle
+    // MARK: - ViewController Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setTextFields()
         view.backgroundColor = BackgroundColor.Red.color
-        title = action.titleValue
+        title = authenticationAction.titleValue
     }
     
-    /// MARK: - TextField Delegate Methods
+    // MARK: - TextField Delegate Methods
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         guard let text = textField.text else { return false }
@@ -71,7 +71,7 @@ final class AuthenticationViewController: UIViewController, UITextFieldDelegate 
             passwordTextField.hidden = false
         case passwordTextField:
             delegate?.enteredPassword = text
-            switch action {
+            switch authenticationAction {
             case .Login: delegate?.login(self)
             case .SignUp:
                 passwordTextField.resignFirstResponder()
@@ -87,7 +87,7 @@ final class AuthenticationViewController: UIViewController, UITextFieldDelegate 
     }
     
     
-    /// MARK: - Set View Properties
+    // MARK: - Set View Properties
     
     private func setTextFields() {
         

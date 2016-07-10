@@ -2,13 +2,13 @@
 //  Result.swift
 //  tbnb
 //
-//  Created by Key Hoffman on 7/6/16.
+//  Created by Key Hoffman on 7/10/16.
 //  Copyright © 2016 Key Hoffman. All rights reserved.
 //
 
 import Foundation
 
-/// MARK: - ResultType Protocol
+// MARK: - ResultType Protocol
 
 protocol ResultType {
     associatedtype Value: FBSendable
@@ -21,7 +21,7 @@ protocol ResultType {
     var error: ErrorType? { get }
 }
 
-/// MARK - Result
+// MARK - Result
 
 enum Result<T: FBSendable, Error: ErrorType>: ResultType {
     typealias Value = T
@@ -36,46 +36,3 @@ enum Result<T: FBSendable, Error: ErrorType>: ResultType {
     var error: ErrorType?    { return self.error }
     
 }
-
-/// MARK: - ProtocolBufferMessageType Protocol
-
-protocol ProtocolBufferMessageType {
-    init(dict: FBDictionary)
-}
-
-/// MARK: - Status
-
-final class Status: ProtocolBufferMessageType { /// TODO: Fix this
-    let success: Bool
-    let localizedDescription: String?
-    
-    init(dict: FBDictionary) {
-        self.success = false
-        self.localizedDescription = "corn"
-    }
-}
-
-/// MARK: - ProtocolBufferResponseMessageType Protocol
-
-protocol ProtocolBufferResponseMessageType {
-    var status: Status { get }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

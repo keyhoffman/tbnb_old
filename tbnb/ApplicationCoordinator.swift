@@ -10,27 +10,21 @@ import Foundation
 import UIKit
 import Firebase
 
-/// MARK: - Coordinator Protocol
-
-protocol Coordinator {
-    func start()
-}
-
-/// MARK: - ApplicationCoordinator
+// MARK: - ApplicationCoordinator
 
 final class ApplicationCoordinator: Coordinator, AuthenticationCoordinatorDelegate, TabBarCoordinatorDelegate, ErrorCoordinatorDelegate {
     
-    /// MARK: - UIWindow
+    // MARK: - UIWindow
     
     private let window: UIWindow
     
-    /// MARK: - Sub-Coordinator Declarations
+    // MARK: - Sub-Coordinator Declarations
     
     private let authenticationCoordinator: AuthenticationCoordinator
     private let tabBarCoordinator:         TabBarCoordinator
     private var errorCoordinator:          ErrorCoordinator?
     
-    /// MARK: - ApplicationCoordinator Initializer
+    // MARK: - ApplicationCoordinator Initializer
     
     init(window: UIWindow) {
         self.window = window
@@ -38,18 +32,18 @@ final class ApplicationCoordinator: Coordinator, AuthenticationCoordinatorDelega
         authenticationCoordinator = AuthenticationCoordinator(window: self.window)
         tabBarCoordinator         = TabBarCoordinator(window: self.window)
         
-        authenticationCoordinator.delegate = self
-        tabBarCoordinator.delegate         = self
+        authenticationCoordinator.coordinatorDelegate = self
+        tabBarCoordinator.coordinatorDelegate         = self
     }
     
-    /// MARK: - Coordinator Methods
+    // MARK: - Coordinator Methods
     
     func start() {
-        try! FIRAuth.auth()?.signOut() /// TODO: - delete this
+        try! FIRAuth.auth()?.signOut() // TODO: - delete this
         authenticationCoordinator.start()
     }
     
-    /// MARK: - AuthenticationCoordinatorDelegate Methods
+    // MARK: - AuthenticationCoordinatorDelegate Methods
     
     func userHasBeenLoggedOut(sender: AuthenticationCoordinator) {
         fatalError("WFT")
@@ -61,14 +55,14 @@ final class ApplicationCoordinator: Coordinator, AuthenticationCoordinatorDelega
         tabBarCoordinator.start()
     }
     
-    /// MARK: - TabBarCoordinatorDelegate Methods
+    // MARK: - TabBarCoordinatorDelegate Methods
     
     func userHasRequestedLogOut(requestingUser user: User, sender: TabBarCoordinator) {
         print("-- requestingUser Dump --")
         dump(user)
     }
     
-    /// MARK: - ErrorSendingType Methods
+    // MARK: - ErrorSendingType Methods
     
     func anErrorHasOccurred(error: ErrorType, sender: Coordinator) {
         errorCoordinator = ErrorCoordinator(window: window, errorType: error)
@@ -76,7 +70,7 @@ final class ApplicationCoordinator: Coordinator, AuthenticationCoordinatorDelega
         errorCoordinator?.start()
     }
     
-    /// MARK: - ErrorCoordinatorDelegate Methods
+    // MARK: - ErrorCoordinatorDelegate Methods
     
     func userHasAcknowledgedError(sender: ErrorCoordinator) {
         print("userHasAcknowledgedError")

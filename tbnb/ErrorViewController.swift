@@ -9,31 +9,31 @@
 import UIKit
 import SnapKit
 
-/// MARK: - ErrorViewControllerDelegate Protocol
+// MARK: - ErrorViewControllerDelegate Protocol
 
 protocol ErrorViewControllerDelegate: class {
     func userHasAcknowledgedError(sender: ErrorViewController)
 }
 
-/// MARK: - ErrorViewController
+// MARK: - ErrorViewController
 
 class ErrorViewController: UIViewController, UIPopoverPresentationControllerDelegate {
     
-    /// MARK: - ErrorViewControllerDelegate Declaration
+    // MARK: - ErrorViewControllerDelegate Declaration
     
     weak var delegate: ErrorViewControllerDelegate?
     
     let errorType: ErrorType
     
-    /// MARK: UILabel Declarations
+    // MARK: - UILabel Declarations
     
     let errorLabel = UILabel()
     
-    /// MARK: UIButton Declarations
+    // MARK: - UIButton Declarations
     
     let errorButton = UIButton()
     
-    /// MARK: - ErrorViewController Initializer
+    // MARK: - ErrorViewController Initializer
     
     init(errorType: ErrorType) {
         self.errorType = errorType
@@ -44,21 +44,21 @@ class ErrorViewController: UIViewController, UIPopoverPresentationControllerDele
         fatalError("init(coder:) has not been implemented")
     }
     
-    /// MARK: - ErrorViewController Lifecycle Methods
+    // MARK: - ErrorViewController Lifecycle Methods
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = ErrorViewControllerAttributes.View.title
+        title = ErrorViewControllerAttribute.View.title
         
-        view.backgroundColor = ErrorViewControllerAttributes.View.color
+        view.backgroundColor = ErrorViewControllerAttribute.View.color
         
         setErrorPopover()
         setErrorLabelProperties()
         setErrorButtonProperties()
     }
     
-    /// MARK: - UIPopoverPresentationControllerDelegate Methods
+    // MARK: - UIPopoverPresentationControllerDelegate Methods
     
     func setErrorPopover() {
         guard let errorPopover  = self.popoverPresentationController else { print("Couldnt set errorPopover");return }
@@ -67,17 +67,17 @@ class ErrorViewController: UIViewController, UIPopoverPresentationControllerDele
         errorPopover.sourceRect = view.bounds
     }
     
-    /// MARK: - Set View Properties
+    // MARK: - Set View Properties
     
     private func setErrorLabelProperties() {
         view.addSubview(errorLabel)
         errorLabel.text            = errorType._domain
-        errorLabel.backgroundColor = ErrorViewControllerAttributes.Label.color
-        errorLabel.textColor       = ErrorViewControllerAttributes.Text.color
+        errorLabel.backgroundColor = ErrorViewControllerAttribute.Label.color
+        errorLabel.textColor       = ErrorViewControllerAttribute.Text.color
         
         errorLabel.snp_makeConstraints { make in
             make.center.equalTo(self.view.snp_center)
-            make.height.width.equalTo(self.view.snp_width).multipliedBy(ErrorViewControllerAttributes.Label.labelWidthToViewWidthFactor)
+            make.height.width.equalTo(self.view.snp_width).multipliedBy(ErrorViewControllerAttribute.Label.labelWidthToViewWidthFactor)
         }
     }
     
@@ -96,7 +96,7 @@ class ErrorViewController: UIViewController, UIPopoverPresentationControllerDele
         }
     }
 
-    /// MARK: UIButton Action Methods
+    // MARK: - UIButton Action Methods
     
     func errorButtonPressed(sender: UIButton) {
         self.delegate?.userHasAcknowledgedError(self)

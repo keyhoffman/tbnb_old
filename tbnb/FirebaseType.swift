@@ -9,17 +9,17 @@
 import Foundation
 import Firebase
 
-/// MARK: - FBDictionary
+// MARK: - FBDictionary
 
 typealias FBDictionary = [String : AnyObject]
 
-/// MARK: - FirebaseType Protocol
+// MARK: - FirebaseType Protocol
 
 protocol FBType {
     static var Path: String { get }
 }
 
-/// MARK: - FirebaseType Protocol Extension
+// MARK: - FirebaseType Protocol Extension
 
 extension FBType { var RootRef: FIRDatabaseReference { return FIRDatabase.database().reference() } }
 

@@ -9,17 +9,17 @@
 import Foundation
 import Firebase
 
-/// MARK: - FirebaseObservable Protocol Extension
+// MARK: - FirebaseObservable Protocol Extension
 
 protocol FBObservable: FBType {
     associatedtype A: FBSendable
-    var parse: FBDictionary? -> Result<A, FBObservingError> { get }
+    var parse: FBDictionary? -> Result<A, FBObservingError<A>> { get }
 }
 
-/// MARK: - FirebaseObservable Protocol Extension
+// MARK: - FirebaseObservable Protocol Extension
 
 extension FBObservable {
-    func load(withBlock: Result<A, FBObservingError> -> Void) {
+    func load(withBlock: Result<A, FBObservingError<A>> -> Void) {
         RootRef.child(A.Path).observeEventType(.ChildAdded, withBlock: { (snapshot: FIRDataSnapshot) in
             guard var FBDict = snapshot.value as? FBDictionary else {
                 withBlock(Result(error: FBObservingError()))
@@ -30,6 +30,7 @@ extension FBObservable {
             return
             }) { error in
                 withBlock(Result(error: FBObservingError(FBError: error)))
+//                withBlock(Result(error: FBObservingError(failedCreationType: A, FBError: error)))
                 return
         }
     }
