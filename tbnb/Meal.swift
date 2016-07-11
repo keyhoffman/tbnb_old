@@ -25,9 +25,9 @@ struct Meal: FBSendable, FBObservable {
 // MARK: - Meal Static Properties Extension
 
 extension Meal {
-    static let Path        = "meals/"
-    static let NeedsAutoID = false
-    static let FBSubKeys   = ["name", "pricePerPerson", "feeds"]
+    static let Path         = "meals/"
+    static let NeedsAutoKey = false
+    static let FBSubKeys    = ["name", "pricePerPerson", "feeds"]
 }
 
 // MARK: - Meal "createNew" Initializer Extension
@@ -41,7 +41,7 @@ extension Meal {
         guard let key = FBDict["key"] as? String, let name = FBDict["name"] as? String, let pricePerPerson = FBDict["pricePerPerson"] as? Double,
             let feeds = FBDict["feeds"] as? Int else { return Result(error: FBObservingError(failedCreationStaticType: Meal.self)) }
         return Result(value: Meal(key: key, name: name, pricePerPerson: pricePerPerson, feeds: feeds))
-    }    
+    }
 }
 
 // MARK: - Meal Equatability

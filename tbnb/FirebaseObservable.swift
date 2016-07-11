@@ -23,16 +23,20 @@ extension FBObservable {
     
     func load(withBlock: Result<Resource, FBObservingError<Resource>> -> Void) {
         RootRef.child(Resource.Path).observeEventType(.ChildAdded, withBlock: { (snapshot: FIRDataSnapshot) in
-            guard var FBDict = snapshot.value as? FBDictionary else {
-                withBlock(Result(error: FBObservingError(snapshotStaticType: Resource.self)))
+            guard let FBDict = snapshot.value as? FBDictionary else {
+                withBlock(Result(error: FBObservingError(ofSnapshotType: Resource.self)))
                 return
             }
-            FBDict["key"] = snapshot.key
+            let fish = FBDict + ["key":snapshot.key]
             withBlock(Self.parse(FBDict))
             return
             }) { error in
-                withBlock(Result(error: FBObservingError(snapshotStaticType: Resource.self, FBError: error)))
+                withBlock(Result(error: FBObservingError(ofType: Resource.self, FBError: error)))
                 return
         }
     }
+}
+
+func +(lhs: FBDictionary, rhs: [String:String]) -> FBDictionary {
+    return lhs.updateValue(rhs.value, forKey: rhs.keys)
 }

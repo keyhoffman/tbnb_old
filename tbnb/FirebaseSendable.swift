@@ -13,9 +13,8 @@ import Foundation
 protocol FBSendable: FBType, Equatable {
     var key: String { get }
     
-    static var NeedsAutoID: Bool           { get }
+    static var NeedsAutoKey: Bool           { get }
     static var FBSubKeys:   [String]       { get }
-//    static var _Resource:   Resource<Self> { get }
     
     static func CreateNew(FBDict: FBDictionary?) -> Result<Self, FBObservingError<Self>>
 }
@@ -23,6 +22,13 @@ protocol FBSendable: FBType, Equatable {
 // MARK: - FirebaseSendable Protocol Extension
 
 extension FBSendable {
+    
+    static func CreaeNew(FBDict: FBDictionary?) -> Result<Self, FBObservingError<Self>> {
+        guard let FBDict = FBDict else { return Result(error: FBObservingError(failedCreationStaticType: Self.self)) }
+        
+    }
+
+    
     func sendToFB(withResult: Result<Self, FBSendingError<Self>> -> Void) {
         guard let FBDict = convertToFBSendable() else {
             withResult(Result(error: FBSendingError(sendingType: self)))
@@ -30,12 +36,7 @@ extension FBSendable {
         }
         print("-- FBDictDump --")
         dump(FBDict)
-        var path: String
-        if Self.NeedsAutoID {
-            path = Self.Path + RootRef.childByAutoId().key
-        } else {
-            path = Self.Path + key
-        }
+        let path = Self.NeedsAutoKey ? Self.Path + autoKey : Self.Path + key
         print("path = \(path)")
         RootRef.child(path).setValue(FBDict) { error, _ in
             if let error = error {
@@ -44,8 +45,9 @@ extension FBSendable {
             }
             withResult(Result(value: self))
         }
-        
     }
+    
+    private var autoKey: String { return RootRef.childByAutoId().key }
     
     private func convertToFBSendable() -> FBDictionary? {
         var FBDict: FBDictionary = [:]

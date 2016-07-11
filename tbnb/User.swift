@@ -20,9 +20,9 @@ struct User: FBSendable, FBObservable {
 // MARK: - User Static Properties Extension
 
 extension User {
-    static let Path        = "users/"
-    static let NeedsAutoID = false
-    static let FBSubKeys   = ["username", "email"]
+    static let Path         = "users/"
+    static let NeedsAutoKey = false
+    static let FBSubKeys    = ["username", "email"]
 }
 
 // MARK: - User "createNew" Initializer Extension
@@ -34,10 +34,10 @@ extension User {
         dump(FBDict)
         guard let FBDict = FBDict else { return Result(error: FBObservingError(failedCreationStaticType: User.self)) }
         guard let email = FBDict["email"] as? String, let username = FBDict["username"] as? String, let key = FBDict["key"] as? String else {
-            return Result(error: FBObservingError(failedCreationStaticType: User.self))
+            return .Failure(FBObservingError(failedCreationStaticType: User.self))
         }
-        return Result(value: User(key: key, username: username, email: email))
-    }    
+        return .Success(User(key: key, username: username, email: email))
+    }
 }
 
 // MARK: - User Equatability 

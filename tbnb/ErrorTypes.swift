@@ -30,11 +30,11 @@ enum FBSendingError<T: FBSendable>: ErrorType {
 enum FBObservingError<T: FBSendable>: ErrorType {
     case CouldNotConvertSnapshotToFBDict(String)
     case CouldNotCreateNewInstance(String)
-    case FBThrownError(String, NSError)
+    case FBThrownError(String)
     
-    init(snapshotStaticType s: T.Type)                   { self = .CouldNotConvertSnapshotToFBDict(ErrorMessage.FBObservingError(s).textValue) }
-    init(snapshotStaticType s: T.Type, FBError: NSError) { self = .FBThrownError("-- \(s) --\n", FBError) }
-    init(failedCreationStaticType f: T.Type)             { self = .CouldNotCreateNewInstance("Could not create a new instance of \(f)") }
+    init(ofSnapshotType type: T.Type)           { self = .CouldNotConvertSnapshotToFBDict(ErrorMessage.FBObservingError(type).textValue) }
+    init(ofType type: T.Type, FBError: NSError) { self = .FBThrownError("-- \(type) --\n" + FBError.localizedDescription) }
+    init(ofType type: T.Type)                   { self = .CouldNotCreateNewInstance("Could not create a new instance of \(type)") }
 }
 
 /// MARK: - AuthenticationError
