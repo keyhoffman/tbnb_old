@@ -34,7 +34,7 @@ final class OpeningViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setNavigationItems()
-        title = ViewControllerTitle.Opening.title
+        title = ViewController.Opening.title
         view.backgroundColor = BackgroundColor.LightGray.color
     }
     

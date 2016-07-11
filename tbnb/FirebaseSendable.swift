@@ -2,7 +2,7 @@
 //  FirebaseSendable.swift
 //  tbnb
 //
-//  Created by Key Hoffman on 7/8/16.
+//  Created by Key Hoffman on 7/10/16.
 //  Copyright © 2016 Key Hoffman. All rights reserved.
 //
 
@@ -15,22 +15,12 @@ protocol FBSendable: FBType, Equatable {
     
     static var NeedsAutoID: Bool           { get }
     static var FBSubKeys:   [String]       { get }
-    static var _Resource:   Resource<Self> { get }
+//    static var _Resource:   Resource<Self> { get }
     
     static func CreateNew(FBDict: FBDictionary?) -> Result<Self, FBObservingError<Self>>
 }
 
-// MARK: - FirebaseSendable Protocol Static Extension
-
-extension FBSendable {
-    static var _Resource: Resource<Self> { return Resource(parse: Self.CreateNew) }
-    
-//    static func CreateNew(FBDict: FBDictionary?) -> Result<Self, FBObservingError<Self>> {
-//        return Result(value: Self) // TODO: - This is not working because Result wants an instance as opposed to a static type
-//    }
-}
-
-// MARK: - FirebaseSendable Protocol General Extension
+// MARK: - FirebaseSendable Protocol Extension
 
 extension FBSendable {
     func sendToFB(withResult: Result<Self, FBSendingError<Self>> -> Void) {

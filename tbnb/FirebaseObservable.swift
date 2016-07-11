@@ -12,25 +12,26 @@ import Firebase
 // MARK: - FirebaseObservable Protocol Extension
 
 protocol FBObservable: FBType {
-    associatedtype A: FBSendable
-    var parse: FBDictionary? -> Result<A, FBObservingError<A>> { get }
+    associatedtype Resource: FBSendable
+    static var parse: FBDictionary? -> Result<Resource, FBObservingError<Resource>> { get }
 }
 
 // MARK: - FirebaseObservable Protocol Extension
 
 extension FBObservable {
-    func load(withBlock: Result<A, FBObservingError<A>> -> Void) {
-        RootRef.child(A.Path).observeEventType(.ChildAdded, withBlock: { (snapshot: FIRDataSnapshot) in
+    static var parse: FBDictionary? -> Result<Resource, FBObservingError<Resource>> { return Resource.CreateNew }
+    
+    func load(withBlock: Result<Resource, FBObservingError<Resource>> -> Void) {
+        RootRef.child(Resource.Path).observeEventType(.ChildAdded, withBlock: { (snapshot: FIRDataSnapshot) in
             guard var FBDict = snapshot.value as? FBDictionary else {
-                withBlock(Result(error: FBObservingError()))
+                withBlock(Result(error: FBObservingError(snapshotStaticType: Resource.self)))
                 return
             }
             FBDict["key"] = snapshot.key
-            withBlock(self.parse(FBDict))
+            withBlock(Self.parse(FBDict))
             return
             }) { error in
-                withBlock(Result(error: FBObservingError(FBError: error)))
-//                withBlock(Result(error: FBObservingError(failedCreationType: A, FBError: error)))
+                withBlock(Result(error: FBObservingError(snapshotStaticType: Resource.self, FBError: error)))
                 return
         }
     }

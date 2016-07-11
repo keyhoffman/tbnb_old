@@ -11,7 +11,8 @@ import UIKit
 
 // MARK - Meal
 
-struct Meal: FBSendable {
+struct Meal: FBSendable, FBObservable {
+    typealias Resource = Meal
     let key:            String /// each meal's key is equal to the key of the user that created it
     let name:           String
     let pricePerPerson: Double
@@ -27,22 +28,20 @@ extension Meal {
     static let Path        = "meals/"
     static let NeedsAutoID = false
     static let FBSubKeys   = ["name", "pricePerPerson", "feeds"]
-//    static let _Resource   = Resource(parse: Meal.CreateNew)
 }
 
 // MARK: - Meal "createNew" Initializer Extension
-// FIXME: - Change error handling from string literal to Meal.type
-// TODO: - This is not working because Result wants an instance as opposed to a static type
+// FIXME: - Change FBDict keys from string literal to Meal.type
 
 extension Meal {
     static func CreateNew(FBDict: FBDictionary?) -> Result<Meal, FBObservingError<Meal>> {
         print("Meal createNew FBDictionary? Dump")
         dump(FBDict)
-        guard let FBDict = FBDict else { return Result(error: FBObservingError(failedCreationType: "Meal")) }
+        guard let FBDict = FBDict else { return Result(error: FBObservingError(failedCreationStaticType: Meal.self)) }
         guard let key = FBDict["key"] as? String, let name = FBDict["name"] as? String, let pricePerPerson = FBDict["pricePerPerson"] as? Double,
-            let feeds = FBDict["feeds"] as? Int else { return Result(error: FBObservingError(failedCreationType: "Meal")) }
+            let feeds = FBDict["feeds"] as? Int else { return Result(error: FBObservingError(failedCreationStaticType: Meal.self)) }
         return Result(value: Meal(key: key, name: name, pricePerPerson: pricePerPerson, feeds: feeds))
-    }
+    }    
 }
 
 // MARK: - Meal Equatability
@@ -50,16 +49,3 @@ extension Meal {
 func ==(lhs: Meal, rhs: Meal) -> Bool {
     return lhs.key == rhs.key && lhs.name == rhs.name && lhs.pricePerPerson == rhs.pricePerPerson && lhs.feeds == rhs.feeds //&& lhs.chef == rhs.chef
 }
-
-
-//    init?(FBDict: FBDictionary?) {
-//        print("Meal FBDictionary? Dump")
-//        dump(FBDict)
-//        guard let FBDict = FBDict else { return nil }
-//        guard let key = FBDict["key"] as? String, let name = FBDict["name"] as? String, let pricePerPerson = FBDict["pricePerPerson"] as? Double,
-//            let feeds = FBDict["feeds"] as? Int else { return nil }
-//        self.key = key
-//        self.name = name
-//        self.pricePerPerson = pricePerPerson
-//        self.feeds = feeds
-//    }

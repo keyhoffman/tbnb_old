@@ -39,8 +39,8 @@ enum AuthenticationAction {
     
     var titleValue: String {
         switch self {
-        case .Login:  return ViewControllerTitle.Login.title
-        case .SignUp: return ViewControllerTitle.SignUp.title
+        case .Login:  return ViewController.Login.title
+        case .SignUp: return ViewController.SignUp.title
         }
     }
 }

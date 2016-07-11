@@ -13,9 +13,6 @@
 		031031FE1D30058B002F7111 /* RemoteContentProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031031FD1D30058B002F7111 /* RemoteContentProviding.swift */; };
 		031031FF1D30058B002F7111 /* RemoteContentProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031031FD1D30058B002F7111 /* RemoteContentProviding.swift */; };
 		031032001D30058B002F7111 /* RemoteContentProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031031FD1D30058B002F7111 /* RemoteContentProviding.swift */; };
-		031032031D3005E4002F7111 /* FirebaseSendable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031032021D3005E4002F7111 /* FirebaseSendable.swift */; };
-		031032041D3005E4002F7111 /* FirebaseSendable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031032021D3005E4002F7111 /* FirebaseSendable.swift */; };
-		031032051D3005E4002F7111 /* FirebaseSendable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031032021D3005E4002F7111 /* FirebaseSendable.swift */; };
 		031032161D306AE7002F7111 /* ErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031032151D306AE7002F7111 /* ErrorViewController.swift */; };
 		031032171D306AE7002F7111 /* ErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031032151D306AE7002F7111 /* ErrorViewController.swift */; };
 		031032181D306AE7002F7111 /* ErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031032151D306AE7002F7111 /* ErrorViewController.swift */; };
@@ -37,15 +34,30 @@
 		031032321D321777002F7111 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031032311D321777002F7111 /* Coordinator.swift */; };
 		031032331D321777002F7111 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031032311D321777002F7111 /* Coordinator.swift */; };
 		031032341D321777002F7111 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031032311D321777002F7111 /* Coordinator.swift */; };
+		0310323A1D333306002F7111 /* FirebaseSendable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031032391D333306002F7111 /* FirebaseSendable.swift */; };
+		0310323B1D333306002F7111 /* FirebaseSendable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031032391D333306002F7111 /* FirebaseSendable.swift */; };
+		0310323C1D333306002F7111 /* FirebaseSendable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031032391D333306002F7111 /* FirebaseSendable.swift */; };
+		0310323E1D333344002F7111 /* ProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0310323D1D333344002F7111 /* ProfileCoordinator.swift */; };
+		0310323F1D333344002F7111 /* ProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0310323D1D333344002F7111 /* ProfileCoordinator.swift */; };
+		031032401D333344002F7111 /* ProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0310323D1D333344002F7111 /* ProfileCoordinator.swift */; };
+		031032431D3339C0002F7111 /* ErrorSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031032421D3339C0002F7111 /* ErrorSheet.swift */; };
+		031032441D3339C0002F7111 /* ErrorSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031032421D3339C0002F7111 /* ErrorSheet.swift */; };
+		031032451D3339C0002F7111 /* ErrorSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031032421D3339C0002F7111 /* ErrorSheet.swift */; };
+		031032471D333A03002F7111 /* ButtonSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031032461D333A03002F7111 /* ButtonSheet.swift */; };
+		031032481D333A03002F7111 /* ButtonSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031032461D333A03002F7111 /* ButtonSheet.swift */; };
+		031032491D333A03002F7111 /* ButtonSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031032461D333A03002F7111 /* ButtonSheet.swift */; };
+		0310324B1D333A4E002F7111 /* TextFieldSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0310324A1D333A4E002F7111 /* TextFieldSheet.swift */; };
+		0310324C1D333A4E002F7111 /* TextFieldSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0310324A1D333A4E002F7111 /* TextFieldSheet.swift */; };
+		0310324D1D333A4E002F7111 /* TextFieldSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0310324A1D333A4E002F7111 /* TextFieldSheet.swift */; };
+		0310324F1D333AB2002F7111 /* ViewControllerSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0310324E1D333AB2002F7111 /* ViewControllerSheet.swift */; };
+		031032501D333AB2002F7111 /* ViewControllerSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0310324E1D333AB2002F7111 /* ViewControllerSheet.swift */; };
+		031032511D333AB2002F7111 /* ViewControllerSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0310324E1D333AB2002F7111 /* ViewControllerSheet.swift */; };
 		034A3CB31D29991B002BDA08 /* StyleSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034A3CB21D29991B002BDA08 /* StyleSheet.swift */; };
 		034A3CB41D29991B002BDA08 /* StyleSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034A3CB21D29991B002BDA08 /* StyleSheet.swift */; };
 		034A3CB51D29991B002BDA08 /* StyleSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034A3CB21D29991B002BDA08 /* StyleSheet.swift */; };
 		034A3CB71D299AE4002BDA08 /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034A3CB61D299AE4002BDA08 /* ApplicationCoordinator.swift */; };
 		034A3CB81D299AE4002BDA08 /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034A3CB61D299AE4002BDA08 /* ApplicationCoordinator.swift */; };
 		034A3CB91D299AE4002BDA08 /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034A3CB61D299AE4002BDA08 /* ApplicationCoordinator.swift */; };
-		034A3CBD1D299EA8002BDA08 /* ProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034A3CBC1D299EA8002BDA08 /* ProfileCoordinator.swift */; };
-		034A3CBE1D299EA8002BDA08 /* ProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034A3CBC1D299EA8002BDA08 /* ProfileCoordinator.swift */; };
-		034A3CBF1D299EA8002BDA08 /* ProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034A3CBC1D299EA8002BDA08 /* ProfileCoordinator.swift */; };
 		034A3CC11D299EBD002BDA08 /* AddMealCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034A3CC01D299EBD002BDA08 /* AddMealCoordinator.swift */; };
 		034A3CC21D299EBD002BDA08 /* AddMealCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034A3CC01D299EBD002BDA08 /* AddMealCoordinator.swift */; };
 		034A3CC31D299EBD002BDA08 /* AddMealCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034A3CC01D299EBD002BDA08 /* AddMealCoordinator.swift */; };
@@ -107,7 +119,6 @@
 /* Begin PBXFileReference section */
 		031031E21D2F8153002F7111 /* MealTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealTableViewCell.swift; sourceTree = "<group>"; };
 		031031FD1D30058B002F7111 /* RemoteContentProviding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteContentProviding.swift; sourceTree = "<group>"; };
-		031032021D3005E4002F7111 /* FirebaseSendable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseSendable.swift; sourceTree = "<group>"; };
 		031032151D306AE7002F7111 /* ErrorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorViewController.swift; sourceTree = "<group>"; };
 		031032191D308A0B002F7111 /* Resource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
 		0310321D1D308BCC002F7111 /* FirebaseObservable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseObservable.swift; sourceTree = "<group>"; };
@@ -115,9 +126,14 @@
 		031032261D30C197002F7111 /* ErrorCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorCoordinator.swift; sourceTree = "<group>"; };
 		0310322D1D3212CD002F7111 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		031032311D321777002F7111 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		031032391D333306002F7111 /* FirebaseSendable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseSendable.swift; sourceTree = "<group>"; };
+		0310323D1D333344002F7111 /* ProfileCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileCoordinator.swift; sourceTree = "<group>"; };
+		031032421D3339C0002F7111 /* ErrorSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorSheet.swift; sourceTree = "<group>"; };
+		031032461D333A03002F7111 /* ButtonSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonSheet.swift; sourceTree = "<group>"; };
+		0310324A1D333A4E002F7111 /* TextFieldSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldSheet.swift; sourceTree = "<group>"; };
+		0310324E1D333AB2002F7111 /* ViewControllerSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerSheet.swift; sourceTree = "<group>"; };
 		034A3CB21D29991B002BDA08 /* StyleSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleSheet.swift; sourceTree = "<group>"; };
 		034A3CB61D299AE4002BDA08 /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
-		034A3CBC1D299EA8002BDA08 /* ProfileCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileCoordinator.swift; sourceTree = "<group>"; };
 		034A3CC01D299EBD002BDA08 /* AddMealCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddMealCoordinator.swift; sourceTree = "<group>"; };
 		034A3CC41D299ED1002BDA08 /* MealsCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealsCoordinator.swift; sourceTree = "<group>"; };
 		034A3CCF1D2C981E002BDA08 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
@@ -193,8 +209,8 @@
 			isa = PBXGroup;
 			children = (
 				034A3CF11D2EF0C6002BDA08 /* FirebaseType.swift */,
-				031032021D3005E4002F7111 /* FirebaseSendable.swift */,
 				0310321D1D308BCC002F7111 /* FirebaseObservable.swift */,
+				031032391D333306002F7111 /* FirebaseSendable.swift */,
 			);
 			name = FirebaseTypes;
 			sourceTree = "<group>";
@@ -212,7 +228,7 @@
 			children = (
 				034A3CC41D299ED1002BDA08 /* MealsCoordinator.swift */,
 				034A3CC01D299EBD002BDA08 /* AddMealCoordinator.swift */,
-				034A3CBC1D299EA8002BDA08 /* ProfileCoordinator.swift */,
+				0310323D1D333344002F7111 /* ProfileCoordinator.swift */,
 			);
 			name = SubCoordinators;
 			sourceTree = "<group>";
@@ -241,6 +257,18 @@
 			name = ApplicationCoordinator;
 			sourceTree = "<group>";
 		};
+		031032411D333985002F7111 /* StyleSheet */ = {
+			isa = PBXGroup;
+			children = (
+				034A3CB21D29991B002BDA08 /* StyleSheet.swift */,
+				031032421D3339C0002F7111 /* ErrorSheet.swift */,
+				031032461D333A03002F7111 /* ButtonSheet.swift */,
+				0310324A1D333A4E002F7111 /* TextFieldSheet.swift */,
+				0310324E1D333AB2002F7111 /* ViewControllerSheet.swift */,
+			);
+			name = StyleSheet;
+			sourceTree = "<group>";
+		};
 		034A3CBA1D299AED002BDA08 /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
@@ -255,8 +283,8 @@
 		034A3CBB1D299B11002BDA08 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				034A3CB21D29991B002BDA08 /* StyleSheet.swift */,
 				031031E21D2F8153002F7111 /* MealTableViewCell.swift */,
+				031032411D333985002F7111 /* StyleSheet */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -655,22 +683,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				034A3CE31D2DDD2A002BDA08 /* User.swift in Sources */,
+				031032471D333A03002F7111 /* ButtonSheet.swift in Sources */,
 				034A3CF21D2EF0C6002BDA08 /* FirebaseType.swift in Sources */,
 				035B20E51D29933000439502 /* AppDelegate.swift in Sources */,
+				0310324F1D333AB2002F7111 /* ViewControllerSheet.swift in Sources */,
 				035B20ED1D29933000439502 /* tbnb.xcdatamodeld in Sources */,
 				031032161D306AE7002F7111 /* ErrorViewController.swift in Sources */,
 				034A3CB31D29991B002BDA08 /* StyleSheet.swift in Sources */,
-				034A3CBD1D299EA8002BDA08 /* ProfileCoordinator.swift in Sources */,
 				034A3CDF1D2DDD1C002BDA08 /* Meal.swift in Sources */,
 				031032321D321777002F7111 /* Coordinator.swift in Sources */,
 				034A3CC11D299EBD002BDA08 /* AddMealCoordinator.swift in Sources */,
 				0310321A1D308A0B002F7111 /* Resource.swift in Sources */,
-				031032031D3005E4002F7111 /* FirebaseSendable.swift in Sources */,
 				034A3CEC1D2DDE72002BDA08 /* AuthenticationViewController.swift in Sources */,
 				031032221D30BC90002F7111 /* ErrorTypes.swift in Sources */,
 				0310322E1D3212CD002F7111 /* Result.swift in Sources */,
 				031031E31D2F8153002F7111 /* MealTableViewCell.swift in Sources */,
 				034A3CD01D2C981E002BDA08 /* TabBarCoordinator.swift in Sources */,
+				0310323A1D333306002F7111 /* FirebaseSendable.swift in Sources */,
+				0310323E1D333344002F7111 /* ProfileCoordinator.swift in Sources */,
+				0310324B1D333A4E002F7111 /* TextFieldSheet.swift in Sources */,
+				031032431D3339C0002F7111 /* ErrorSheet.swift in Sources */,
 				0310321E1D308BCC002F7111 /* FirebaseObservable.swift in Sources */,
 				034A3CD41D2C985D002BDA08 /* AuthenticationCoordinator.swift in Sources */,
 				034A3CE81D2DDE5C002BDA08 /* OpeningViewController.swift in Sources */,
@@ -685,20 +717,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				034A3CBE1D299EA8002BDA08 /* ProfileCoordinator.swift in Sources */,
+				031032501D333AB2002F7111 /* ViewControllerSheet.swift in Sources */,
 				034A3CC21D299EBD002BDA08 /* AddMealCoordinator.swift in Sources */,
 				034A3CF31D2EF0C6002BDA08 /* FirebaseType.swift in Sources */,
 				034A3CD11D2C981E002BDA08 /* TabBarCoordinator.swift in Sources */,
 				031031E41D2F8153002F7111 /* MealTableViewCell.swift in Sources */,
 				034A3CE91D2DDE5C002BDA08 /* OpeningViewController.swift in Sources */,
+				031032481D333A03002F7111 /* ButtonSheet.swift in Sources */,
 				0310321F1D308BCC002F7111 /* FirebaseObservable.swift in Sources */,
 				035B20FD1D29933200439502 /* tbnbTests.swift in Sources */,
 				034A3CE01D2DDD1C002BDA08 /* Meal.swift in Sources */,
 				034A3CB41D29991B002BDA08 /* StyleSheet.swift in Sources */,
 				0310322F1D3212CD002F7111 /* Result.swift in Sources */,
-				031032041D3005E4002F7111 /* FirebaseSendable.swift in Sources */,
+				0310324C1D333A4E002F7111 /* TextFieldSheet.swift in Sources */,
+				0310323B1D333306002F7111 /* FirebaseSendable.swift in Sources */,
 				031032171D306AE7002F7111 /* ErrorViewController.swift in Sources */,
 				031032231D30BC90002F7111 /* ErrorTypes.swift in Sources */,
+				0310323F1D333344002F7111 /* ProfileCoordinator.swift in Sources */,
+				031032441D3339C0002F7111 /* ErrorSheet.swift in Sources */,
 				034A3CE41D2DDD2A002BDA08 /* User.swift in Sources */,
 				0310321B1D308A0B002F7111 /* Resource.swift in Sources */,
 				031031FF1D30058B002F7111 /* RemoteContentProviding.swift in Sources */,
@@ -715,20 +751,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				034A3CBF1D299EA8002BDA08 /* ProfileCoordinator.swift in Sources */,
+				031032511D333AB2002F7111 /* ViewControllerSheet.swift in Sources */,
 				034A3CC31D299EBD002BDA08 /* AddMealCoordinator.swift in Sources */,
 				034A3CF41D2EF0C6002BDA08 /* FirebaseType.swift in Sources */,
 				034A3CD21D2C981E002BDA08 /* TabBarCoordinator.swift in Sources */,
 				031031E51D2F8153002F7111 /* MealTableViewCell.swift in Sources */,
 				034A3CEA1D2DDE5C002BDA08 /* OpeningViewController.swift in Sources */,
+				031032491D333A03002F7111 /* ButtonSheet.swift in Sources */,
 				031032201D308BCC002F7111 /* FirebaseObservable.swift in Sources */,
 				035B21081D29933200439502 /* tbnbUITests.swift in Sources */,
 				034A3CE11D2DDD1C002BDA08 /* Meal.swift in Sources */,
 				034A3CB51D29991B002BDA08 /* StyleSheet.swift in Sources */,
 				031032301D3212CD002F7111 /* Result.swift in Sources */,
-				031032051D3005E4002F7111 /* FirebaseSendable.swift in Sources */,
+				0310324D1D333A4E002F7111 /* TextFieldSheet.swift in Sources */,
+				0310323C1D333306002F7111 /* FirebaseSendable.swift in Sources */,
 				031032181D306AE7002F7111 /* ErrorViewController.swift in Sources */,
 				031032241D30BC90002F7111 /* ErrorTypes.swift in Sources */,
+				031032401D333344002F7111 /* ProfileCoordinator.swift in Sources */,
+				031032451D3339C0002F7111 /* ErrorSheet.swift in Sources */,
 				034A3CE51D2DDD2A002BDA08 /* User.swift in Sources */,
 				0310321C1D308A0B002F7111 /* Resource.swift in Sources */,
 				031032001D30058B002F7111 /* RemoteContentProviding.swift in Sources */,

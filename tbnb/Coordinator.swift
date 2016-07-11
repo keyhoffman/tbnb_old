@@ -15,9 +15,18 @@ protocol Coordinator: class {
 }
 
 // MARK: - SubCoordinator Protocol
-// TODO: - Make the types work!!!!
+// TODO: - Make the types work!!!! -------> Use protocol composition
 
 protocol SubCoordinator: Coordinator {
-    //    associatedtype CoordinatorDelegate: class
-    //    weak var coordinatorDelegate: CoordinatorDelegate? { get set }
+//        associatedtype CoordinatorDelegate: CoordinatorDelegateProtocol
+//        weak var coordinatorDelegate: CoordinatorDelegate? { get set }
 }
+
+
+//protocol ViewControllerDelegate: class {}
+//protocol CoordinatorDelegate: class {}
+//
+//
+//typealias CoordinatorDelegateProtocol    = protocol<CoordinatorDelegate>
+//typealias ViewControllerDelegateProtocol = protocol<ViewControllerDelegate>
+
