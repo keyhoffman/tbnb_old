@@ -86,7 +86,7 @@ final class AuthenticationCoordinator: SubCoordinator, Authenticator, OpeningVie
     // MARK: - Coordinator and Authenticator Methods
     
     func start() {
-        if let user = checkCurrentUser() { print("-- UserDump --"); dump(user); coordinatorDelegate?.userHasBeenAuthenticated(authenticatedUser: user, sender: self) }
+        if let user = checkCurrentUser() { coordinatorDelegate?.userHasBeenAuthenticated(authenticatedUser: user, sender: self) }
         else {
             print("NO USER!")
             window.rootViewController = rootViewController
@@ -156,7 +156,7 @@ extension Authenticator where Self: AuthenticationCoordinator, Self: Authenticat
                 let logggedInUser = User(key: user.uid, username: username, email: email)
                 logggedInUser.sendToFB { result in
                     switch result {
-                    case .Failure(let error): self.coordinatorDelegate?.anErrorHasOccurred(error, sender: self) // TODO: Fix this
+                    case .Failure(let error): self.coordinatorDelegate?.anErrorHasOccurred(error, sender: self) // Sending error is impicitly contained inside of "error"
                     case .Success(let user):  self.coordinatorDelegate?.userHasBeenAuthenticated(authenticatedUser: user, sender: self)
                     }
                 }

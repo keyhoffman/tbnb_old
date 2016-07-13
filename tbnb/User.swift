@@ -32,9 +32,9 @@ extension User {
     static func CreateNew(FBDict: FBDictionary?) -> Result<User, FBObservingError<User>> {
         print("User createNew FBDictionary? Dump")
         dump(FBDict)
-        guard let FBDict = FBDict else { return Result(error: FBObservingError(failedCreationStaticType: User.self)) }
+        guard let FBDict = FBDict else { return Result(error: FBObservingError(ofType: User.self)) }
         guard let email = FBDict["email"] as? String, let username = FBDict["username"] as? String, let key = FBDict["key"] as? String else {
-            return .Failure(FBObservingError(failedCreationStaticType: User.self))
+            return .Failure(FBObservingError(ofType: User.self))
         }
         return .Success(User(key: key, username: username, email: email))
     }

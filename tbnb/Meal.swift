@@ -11,14 +11,14 @@ import UIKit
 
 // MARK - Meal
 
-struct Meal: FBSendable, FBObservable {
-    typealias Resource = Meal
+struct Meal: FBSendable, FBObservable, ImageContainingType {
     let key:            String /// each meal's key is equal to the key of the user that created it
     let name:           String
     let pricePerPerson: Double
     let feeds:          Int
+    let imagePath:      String
+    typealias Resource = Meal
 //    let chef:           User
-//    let image:          UIImage?
 //    let datePosted:     NSDate
 }
 
@@ -35,12 +35,10 @@ extension Meal {
 
 extension Meal {
     static func CreateNew(FBDict: FBDictionary?) -> Result<Meal, FBObservingError<Meal>> {
-        print("Meal createNew FBDictionary? Dump")
-        dump(FBDict)
-        guard let FBDict = FBDict else { return Result(error: FBObservingError(failedCreationStaticType: Meal.self)) }
+        guard let FBDict = FBDict else { return Result(error: FBObservingError(ofType: Meal.self)) }
         guard let key = FBDict["key"] as? String, let name = FBDict["name"] as? String, let pricePerPerson = FBDict["pricePerPerson"] as? Double,
-            let feeds = FBDict["feeds"] as? Int else { return Result(error: FBObservingError(failedCreationStaticType: Meal.self)) }
-        return Result(value: Meal(key: key, name: name, pricePerPerson: pricePerPerson, feeds: feeds))
+            let feeds = FBDict["feeds"] as? Int, let imagePath = FBDict["imageURL"] as? String else { return Result(error: FBObservingError(ofType: Meal.self)) }
+        return Result(value: Meal(key: key, name: name, pricePerPerson: pricePerPerson, feeds: feeds, imagePath: imagePath))
     }
 }
 

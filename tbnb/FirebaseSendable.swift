@@ -13,8 +13,8 @@ import Foundation
 protocol FBSendable: FBType, Equatable {
     var key: String { get }
     
-    static var NeedsAutoKey: Bool           { get }
-    static var FBSubKeys:   [String]       { get }
+    static var NeedsAutoKey: Bool    { get }
+    static var FBSubKeys:   [String] { get }
     
     static func CreateNew(FBDict: FBDictionary?) -> Result<Self, FBObservingError<Self>>
 }
@@ -23,10 +23,13 @@ protocol FBSendable: FBType, Equatable {
 
 extension FBSendable {
     
-    static func CreaeNew(FBDict: FBDictionary?) -> Result<Self, FBObservingError<Self>> {
-        guard let FBDict = FBDict else { return Result(error: FBObservingError(failedCreationStaticType: Self.self)) }
-        
-    }
+//    static func CreaeNewME(FBDict: FBDictionary?) -> Result<Self, FBObservingError<Self>> {
+//        guard let FBDict = FBDict else { return Result(error: FBObservingError(ofType: Self.self)) }
+//        let mirror = Mirror(reflecting: Self.self)
+//        for case let (label?, value) in mirror.children {
+//            guard case let Self.self.label? = FBDict["\(label)"] as? value.dynamicType else { return Result(error: FBObservingError(ofType: Self.self)) }
+//        }
+//    }
 
     
     func sendToFB(withResult: Result<Self, FBSendingError<Self>> -> Void) {
@@ -53,7 +56,11 @@ extension FBSendable {
         var FBDict: FBDictionary = [:]
         let mirror = Mirror(reflecting: self)
         for case let (label?, value) in mirror.children {
-            print("label = \(label), value = \(value)")
+            print("label = \(label), value dynamicType = \(value.dynamicType)")
+            print("value subjectType = \(Mirror(reflecting: value).subjectType)")
+            let y = Mirror(reflecting: value).subjectType
+            print("y.dynamicType = \(y.dynamicType)")
+//            let f: y.dynamicType = value
             FBDict[label] = value as? AnyObject
         }
         return Dictionary(FBDict.filter { Self.FBSubKeys.contains($0.0) })
