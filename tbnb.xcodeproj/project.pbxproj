@@ -94,6 +94,9 @@
 		035B21161D29938100439502 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 035B21151D29938100439502 /* GoogleService-Info.plist */; };
 		035B21171D29938100439502 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 035B21151D29938100439502 /* GoogleService-Info.plist */; };
 		035B21181D29938100439502 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 035B21151D29938100439502 /* GoogleService-Info.plist */; };
+		03C7BBC61D36CFE7008350D5 /* MyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C7BBC51D36CFE7008350D5 /* MyTableViewController.swift */; };
+		03C7BBC71D36CFE7008350D5 /* MyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C7BBC51D36CFE7008350D5 /* MyTableViewController.swift */; };
+		03C7BBC81D36CFE7008350D5 /* MyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C7BBC51D36CFE7008350D5 /* MyTableViewController.swift */; };
 		83EFBB5BFEAEE98B135A3B76 /* Pods_tbnbUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B932E74C247C33C122A8B19 /* Pods_tbnbUITests.framework */; };
 		C14618A3B9FDE4F26D60A426 /* Pods_tbnb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E154A56EB8034571674FD493 /* Pods_tbnb.framework */; };
 		E9521740F30B6A4E215C3CAC /* Pods_tbnbTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F97FAD78E231D93A9088FE5F /* Pods_tbnbTests.framework */; };
@@ -156,6 +159,7 @@
 		035B21071D29933200439502 /* tbnbUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tbnbUITests.swift; sourceTree = "<group>"; };
 		035B21091D29933200439502 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		035B21151D29938100439502 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		03C7BBC51D36CFE7008350D5 /* MyTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTableViewController.swift; sourceTree = "<group>"; };
 		0BE0E0BCBF29A926BF4E2300 /* Pods-tbnbTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tbnbTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-tbnbTests/Pods-tbnbTests.release.xcconfig"; sourceTree = "<group>"; };
 		22CF26F66DAF81A858EFA379 /* Pods-tbnbUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tbnbUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-tbnbUITests/Pods-tbnbUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		289A85A380CE77594F8B5DC8 /* Pods-tbnbUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tbnbUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-tbnbUITests/Pods-tbnbUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -226,8 +230,8 @@
 		031032061D3006EE002F7111 /* SubCoordinators */ = {
 			isa = PBXGroup;
 			children = (
-				034A3CC41D299ED1002BDA08 /* MealsCoordinator.swift */,
 				034A3CC01D299EBD002BDA08 /* AddMealCoordinator.swift */,
+				034A3CC41D299ED1002BDA08 /* MealsCoordinator.swift */,
 				0310323D1D333344002F7111 /* ProfileCoordinator.swift */,
 			);
 			name = SubCoordinators;
@@ -337,6 +341,7 @@
 				034A3CE71D2DDE5C002BDA08 /* OpeningViewController.swift */,
 				034A3CEB1D2DDE72002BDA08 /* AuthenticationViewController.swift */,
 				031032151D306AE7002F7111 /* ErrorViewController.swift */,
+				03C7BBC51D36CFE7008350D5 /* MyTableViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -693,6 +698,7 @@
 				034A3CDF1D2DDD1C002BDA08 /* Meal.swift in Sources */,
 				031032321D321777002F7111 /* Coordinator.swift in Sources */,
 				034A3CC11D299EBD002BDA08 /* AddMealCoordinator.swift in Sources */,
+				03C7BBC61D36CFE7008350D5 /* MyTableViewController.swift in Sources */,
 				0310321A1D308A0B002F7111 /* Resource.swift in Sources */,
 				034A3CEC1D2DDE72002BDA08 /* AuthenticationViewController.swift in Sources */,
 				031032221D30BC90002F7111 /* ErrorTypes.swift in Sources */,
@@ -732,6 +738,7 @@
 				0310324C1D333A4E002F7111 /* TextFieldSheet.swift in Sources */,
 				0310323B1D333306002F7111 /* FirebaseSendable.swift in Sources */,
 				031032171D306AE7002F7111 /* ErrorViewController.swift in Sources */,
+				03C7BBC71D36CFE7008350D5 /* MyTableViewController.swift in Sources */,
 				031032231D30BC90002F7111 /* ErrorTypes.swift in Sources */,
 				0310323F1D333344002F7111 /* ProfileCoordinator.swift in Sources */,
 				031032441D3339C0002F7111 /* ErrorSheet.swift in Sources */,
@@ -766,6 +773,7 @@
 				0310324D1D333A4E002F7111 /* TextFieldSheet.swift in Sources */,
 				0310323C1D333306002F7111 /* FirebaseSendable.swift in Sources */,
 				031032181D306AE7002F7111 /* ErrorViewController.swift in Sources */,
+				03C7BBC81D36CFE7008350D5 /* MyTableViewController.swift in Sources */,
 				031032241D30BC90002F7111 /* ErrorTypes.swift in Sources */,
 				031032401D333344002F7111 /* ProfileCoordinator.swift in Sources */,
 				031032451D3339C0002F7111 /* ErrorSheet.swift in Sources */,

@@ -13,24 +13,16 @@ import Foundation
 protocol FBSendable: FBType, Equatable {
     var key: String { get }
     
-    static var NeedsAutoKey: Bool    { get }
-    static var FBSubKeys:   [String] { get }
+    static var NeedsAutoKey: Bool        { get }
+    static var FBSubKeys:   [String]     { get }
+    static var _Resource: Resource<Self> { get }
     
-    static func CreateNew(FBDict: FBDictionary?) -> Result<Self, FBObservingError<Self>>
+    static func Create(FBDict: FBDictionary?) -> Result<Self, FBObservingError<Self>>
 }
 
 // MARK: - FirebaseSendable Protocol Extension
 
 extension FBSendable {
-    
-//    static func CreaeNewME(FBDict: FBDictionary?) -> Result<Self, FBObservingError<Self>> {
-//        guard let FBDict = FBDict else { return Result(error: FBObservingError(ofType: Self.self)) }
-//        let mirror = Mirror(reflecting: Self.self)
-//        for case let (label?, value) in mirror.children {
-//            guard case let Self.self.label? = FBDict["\(label)"] as? value.dynamicType else { return Result(error: FBObservingError(ofType: Self.self)) }
-//        }
-//    }
-
     
     func sendToFB(withResult: Result<Self, FBSendingError<Self>> -> Void) {
         guard let FBDict = convertToFBSendable() else {
