@@ -29,7 +29,8 @@ final class MealsCoordinator: SubCoordinator {
     
     // MARK: - ViewContoller Declaration
     
-    private let mealsTableViewController = MyTableViewController(resource: User._Resource)
+    private let mealsTableViewController = MyTableViewController(resource: Meal.Resource_)
+    private let _mealsTableViewController = MealsTableViewController()
     
     // MARK: - MealsCoordinator Initializer
     
@@ -41,12 +42,12 @@ final class MealsCoordinator: SubCoordinator {
     
     func start() {
         navigationController.pushViewController(mealsTableViewController, animated: false)
-        mealsTableViewController.configureCell = { cell, user in
-            cell.textLabel?.text = user.email
-            cell.detailTextLabel?.text = user.username
+        mealsTableViewController.configureCell = { cell, meal in
+            cell.textLabel?.text = meal.name
+            cell.detailTextLabel?.text = "meal.pricePerPerson = " + String(meal.pricePerPerson)
         }
         mealsTableViewController.configureSelf = { mealsVC in
-            mealsVC.title = "Mymeals"
+            mealsVC.title = "Meals Near Me"
         }
     }
 }

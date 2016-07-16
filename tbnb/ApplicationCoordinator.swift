@@ -50,8 +50,6 @@ final class ApplicationCoordinator: Coordinator, AuthenticationCoordinatorDelega
     }
     
     func userHasBeenAuthenticated(authenticatedUser user: User, sender: AuthenticationCoordinator) {
-        print("-- authenticatedUser Dump --")
-        dump(user)
         tabBarCoordinator.start()
     }
     

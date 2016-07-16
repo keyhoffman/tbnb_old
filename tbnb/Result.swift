@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 // MARK: - ResultType Protocol
 
@@ -35,4 +36,17 @@ enum Result<T: FBSendable, Error: ErrorType>: ResultType {
     var value: Result.Value? { return self.value }
     var error: ErrorType?    { return self.error }
     
+}
+
+enum ImageResult<T: UIImage, Error: ErrorType> {
+    typealias Value = T
+    
+    case Success(Value)
+    case Failure(Error)
+    
+    init(value: Value) { self = .Success(value) }
+    init(error: Error) { self = .Failure(error) }
+    
+    var value: ImageResult.Value? { return self.value }
+    var error: ErrorType?         { return self.error }
 }

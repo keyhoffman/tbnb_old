@@ -97,6 +97,12 @@
 		03C7BBC61D36CFE7008350D5 /* MyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C7BBC51D36CFE7008350D5 /* MyTableViewController.swift */; };
 		03C7BBC71D36CFE7008350D5 /* MyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C7BBC51D36CFE7008350D5 /* MyTableViewController.swift */; };
 		03C7BBC81D36CFE7008350D5 /* MyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C7BBC51D36CFE7008350D5 /* MyTableViewController.swift */; };
+		03C7BBCA1D398007008350D5 /* MealsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C7BBC91D398007008350D5 /* MealsTableViewController.swift */; };
+		03C7BBCB1D398007008350D5 /* MealsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C7BBC91D398007008350D5 /* MealsTableViewController.swift */; };
+		03C7BBCC1D398007008350D5 /* MealsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C7BBC91D398007008350D5 /* MealsTableViewController.swift */; };
+		03C7BBCE1D398144008350D5 /* IncomingDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C7BBCD1D398144008350D5 /* IncomingDataManager.swift */; };
+		03C7BBCF1D398144008350D5 /* IncomingDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C7BBCD1D398144008350D5 /* IncomingDataManager.swift */; };
+		03C7BBD01D398144008350D5 /* IncomingDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C7BBCD1D398144008350D5 /* IncomingDataManager.swift */; };
 		83EFBB5BFEAEE98B135A3B76 /* Pods_tbnbUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B932E74C247C33C122A8B19 /* Pods_tbnbUITests.framework */; };
 		C14618A3B9FDE4F26D60A426 /* Pods_tbnb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E154A56EB8034571674FD493 /* Pods_tbnb.framework */; };
 		E9521740F30B6A4E215C3CAC /* Pods_tbnbTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F97FAD78E231D93A9088FE5F /* Pods_tbnbTests.framework */; };
@@ -160,6 +166,8 @@
 		035B21091D29933200439502 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		035B21151D29938100439502 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		03C7BBC51D36CFE7008350D5 /* MyTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTableViewController.swift; sourceTree = "<group>"; };
+		03C7BBC91D398007008350D5 /* MealsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealsTableViewController.swift; sourceTree = "<group>"; };
+		03C7BBCD1D398144008350D5 /* IncomingDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IncomingDataManager.swift; sourceTree = "<group>"; };
 		0BE0E0BCBF29A926BF4E2300 /* Pods-tbnbTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tbnbTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-tbnbTests/Pods-tbnbTests.release.xcconfig"; sourceTree = "<group>"; };
 		22CF26F66DAF81A858EFA379 /* Pods-tbnbUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tbnbUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-tbnbUITests/Pods-tbnbUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		289A85A380CE77594F8B5DC8 /* Pods-tbnbUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tbnbUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-tbnbUITests/Pods-tbnbUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -241,6 +249,7 @@
 			isa = PBXGroup;
 			children = (
 				031032211D30BC90002F7111 /* ErrorTypes.swift */,
+				03C7BBCD1D398144008350D5 /* IncomingDataManager.swift */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -342,6 +351,7 @@
 				034A3CEB1D2DDE72002BDA08 /* AuthenticationViewController.swift */,
 				031032151D306AE7002F7111 /* ErrorViewController.swift */,
 				03C7BBC51D36CFE7008350D5 /* MyTableViewController.swift */,
+				03C7BBC91D398007008350D5 /* MealsTableViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -695,6 +705,7 @@
 				035B20ED1D29933000439502 /* tbnb.xcdatamodeld in Sources */,
 				031032161D306AE7002F7111 /* ErrorViewController.swift in Sources */,
 				034A3CB31D29991B002BDA08 /* StyleSheet.swift in Sources */,
+				03C7BBCE1D398144008350D5 /* IncomingDataManager.swift in Sources */,
 				034A3CDF1D2DDD1C002BDA08 /* Meal.swift in Sources */,
 				031032321D321777002F7111 /* Coordinator.swift in Sources */,
 				034A3CC11D299EBD002BDA08 /* AddMealCoordinator.swift in Sources */,
@@ -707,6 +718,7 @@
 				034A3CD01D2C981E002BDA08 /* TabBarCoordinator.swift in Sources */,
 				0310323A1D333306002F7111 /* FirebaseSendable.swift in Sources */,
 				0310323E1D333344002F7111 /* ProfileCoordinator.swift in Sources */,
+				03C7BBCA1D398007008350D5 /* MealsTableViewController.swift in Sources */,
 				0310324B1D333A4E002F7111 /* TextFieldSheet.swift in Sources */,
 				031032431D3339C0002F7111 /* ErrorSheet.swift in Sources */,
 				0310321E1D308BCC002F7111 /* FirebaseObservable.swift in Sources */,
@@ -749,6 +761,8 @@
 				031032281D30C197002F7111 /* ErrorCoordinator.swift in Sources */,
 				034A3CED1D2DDE72002BDA08 /* AuthenticationViewController.swift in Sources */,
 				034A3CD51D2C985D002BDA08 /* AuthenticationCoordinator.swift in Sources */,
+				03C7BBCB1D398007008350D5 /* MealsTableViewController.swift in Sources */,
+				03C7BBCF1D398144008350D5 /* IncomingDataManager.swift in Sources */,
 				034A3CB81D299AE4002BDA08 /* ApplicationCoordinator.swift in Sources */,
 				034A3CC61D299ED1002BDA08 /* MealsCoordinator.swift in Sources */,
 			);
@@ -784,6 +798,8 @@
 				031032291D30C197002F7111 /* ErrorCoordinator.swift in Sources */,
 				034A3CEE1D2DDE72002BDA08 /* AuthenticationViewController.swift in Sources */,
 				034A3CD61D2C985D002BDA08 /* AuthenticationCoordinator.swift in Sources */,
+				03C7BBCC1D398007008350D5 /* MealsTableViewController.swift in Sources */,
+				03C7BBD01D398144008350D5 /* IncomingDataManager.swift in Sources */,
 				034A3CB91D299AE4002BDA08 /* ApplicationCoordinator.swift in Sources */,
 				034A3CC71D299ED1002BDA08 /* MealsCoordinator.swift in Sources */,
 			);

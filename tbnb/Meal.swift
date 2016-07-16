@@ -16,7 +16,8 @@ struct Meal: FBSendable, ImageContainingType {
     let name:           String
     let pricePerPerson: Double
     let feeds:          Int
-    let imagePath:      String
+//    let imagePath:      String
+    let image:          UIImage
 //    let chef:           User
 //    let datePosted:     NSDate
 }
@@ -27,7 +28,7 @@ extension Meal {
     static let Path         = "meals/"
     static let NeedsAutoKey = false
     static let FBSubKeys    = ["name", "pricePerPerson", "feeds"]
-    static let _Resource    = Resource(parse: Meal.Create)
+    static let Resource_    = Resource(parse: Meal.Create)
 }
 
 // MARK: - Meal "createNew" Initializer Extension
@@ -37,9 +38,17 @@ extension Meal {
     static func Create(FBDict: FBDictionary?) -> Result<Meal, FBObservingError<Meal>> {
         guard let FBDict = FBDict else { return Result(error: FBObservingError(ofType: Meal.self)) }
         guard let key = FBDict["key"] as? String, let name = FBDict["name"] as? String, let pricePerPerson = FBDict["pricePerPerson"] as? Double,
-            let feeds = FBDict["feeds"] as? Int, let imagePath = FBDict["imageURL"] as? String else { return Result(error: FBObservingError(ofType: Meal.self)) }
-        return Result(value: Meal(key: key, name: name, pricePerPerson: pricePerPerson, feeds: feeds, imagePath: imagePath))
+            let feeds = FBDict["feeds"] as? Int, let imagePath = FBDict["imagePath"] as? String else { return Result(error: FBObservingError(ofType: Meal.self)) }
+        
+        print("imagePath = \(imagePath)")
+        let y = Meal.loadImage(withPath: imagePath) { imageResult in
+            switch imageResult {
+            case .Failure(_):     break
+            case .Success(let i): break
+            }
+        }
     }
+        
 }
 
 // MARK: - Meal Equatability

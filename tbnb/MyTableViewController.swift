@@ -26,6 +26,7 @@ extension UIActivityIndicatorView {
         self.init()
         self.activityIndicatorViewStyle = style
         self.hidesWhenStopped = hides
+        self.translatesAutoresizingMaskIntoConstraints = false
     }
 }
 
@@ -51,6 +52,8 @@ class MyTableViewController<T: FBSendable>: UITableViewController, LoadingDispla
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        spinner.center = view.center
+        view.addSubview(spinner)
         
         configureSelf(self)
         load()
@@ -76,7 +79,6 @@ class MyTableViewController<T: FBSendable>: UITableViewController, LoadingDispla
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("items.count = \(items.count)")
         return items.count
     }
 

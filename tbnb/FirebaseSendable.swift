@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import UIKit
+import Firebase
 
 // MARK: - FirebaseSendable Protocol
 
@@ -15,9 +17,9 @@ protocol FBSendable: FBType, Equatable {
     
     static var NeedsAutoKey: Bool        { get }
     static var FBSubKeys:   [String]     { get }
-    static var _Resource: Resource<Self> { get }
+    static var Resource_: Resource<Self> { get }
     
-    static func Create(FBDict: FBDictionary?) -> Result<Self, FBObservingError<Self>>
+    static func Create(FBDict: FBDictionary?) -> Result<Self, FBObservingError<Self>> 
 }
 
 // MARK: - FirebaseSendable Protocol Extension
@@ -50,14 +52,38 @@ extension FBSendable {
         for case let (label?, value) in mirror.children {
             print("label = \(label), value dynamicType = \(value.dynamicType)")
             print("value subjectType = \(Mirror(reflecting: value).subjectType)")
-            let y = Mirror(reflecting: value).subjectType
-            print("y.dynamicType = \(y.dynamicType)")
-//            let f: y.dynamicType = value
             FBDict[label] = value as? AnyObject
         }
         return Dictionary(FBDict.filter { Self.FBSubKeys.contains($0.0) })
     }
 }
+
+extension FBSendable where Self: ImageContainingType {
+    static func loadImage(withPath imagePath: String, withBlock: ImageResult<UIImage, NSError> -> Void) {
+        let imageRef = storageRef.child(imagePath)
+        
+        imageRef.dataWithMaxSize(maxSize) { data, error in
+            guard let data = data else { if let error = error { withBlock(.Failure(error)) }
+                return
+            }
+            if let newImage = UIImage(data: data) {
+                withBlock(.Success(newImage))
+                return
+            }
+            return
+        }
+    }
+    
+}
+
+protocol ImageContainingType: FBType {}
+
+extension ImageContainingType {
+    static var storage: FIRStorage { return FIRStorage.storage() }
+    static var storageRef: FIRStorageReference { return storage.referenceForURL("gs://project-131193767834450985.appspot.com") }
+    static var maxSize: Int64 { return 1 * 1024 * 1024 }
+}
+
 
 // MARK: - Dictionary Extension
 

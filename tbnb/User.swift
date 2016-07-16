@@ -22,7 +22,7 @@ extension User {
     static let Path         = "users/"
     static let NeedsAutoKey = false
     static let FBSubKeys    = ["username", "email"]
-    static let _Resource    = Resource(parse: User.Create)
+    static let Resource_    = Resource(parse: User.Create)
 }
 
 // MARK: - User "createNew" Initializer Extension
@@ -32,7 +32,9 @@ extension User {
     static func Create(FBDict: FBDictionary?) -> Result<User, FBObservingError<User>> {
 //        print("User createNew FBDictionary? Dump")
 //        dump(FBDict)
-        guard let FBDict = FBDict else { return Result(error: FBObservingError(ofType: User.self)) }
+        guard let FBDict = FBDict else {
+            return Result(error: FBObservingError(ofType: User.self))
+        }
         guard let email = FBDict["email"] as? String, let username = FBDict["username"] as? String, let key = FBDict["key"] as? String else {
             return .Failure(FBObservingError(ofType: User.self))
         }

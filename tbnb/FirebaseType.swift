@@ -24,13 +24,32 @@ protocol FBType {
 
 extension FBType { var RootRef: FIRDatabaseReference { return FIRDatabase.database().reference() } }
 
-protocol ImageContainingType: FBType {
-    var imagePath: String { get }
-}
 
-//let storage = FIRStorage.storage()
 
-extension ImageContainingType {
-    static var storage: FIRStorage { return FIRStorage.storage() }
-    static var storageRef: FIRStorageReference { return storage.referenceForURL("gs://project-131193767834450985.appspot.com") }
-}
+//    func loadImage(withBlock: Result<UIImage, NSError> -> Void) {
+//
+//        let maxSize: Int64 = 1 * 1024 * 1024
+//
+//        let storage = FIRStorage.storage()
+//        let storageRef = storage.referenceForURL("gs://project-131193767834450985.appspot.com")
+//
+//        let lasagnaRef = storageRef.child("Meal1_Lasagna/Lasagna1.jpg")
+//
+//        lasagnaRef.dataWithMaxSize(maxSize) { data, error in
+//            guard let data = data else { if let error = error { withBlock(Result(error: error)) }
+//                print("EEEEEERRRPR")
+//                return
+//            }
+//
+//            if let lasagnaImage = UIImage(data: data) {
+//                print("-- lasagnaImageDump --")
+//                dump(lasagnaImage)
+//                withBlock(Result(value: lasagnaImage))
+//                print("Nah brah")
+//                return
+//            }
+//            return
+//        }
+//
+//    }
+//
